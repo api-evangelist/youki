@@ -1,0 +1,28 @@
+aid: youki
+name: youki
+description: >-
+  youki is a container runtime written in Rust that implements the OCI runtime specification as an alternative to runc.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Containers
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/youki/refs/heads/main/apis.yml
+created: '2026-03-26'
+modified: '2026-03-26'
+specificationVersion: '0.19'
+apis:
+  - aid: youki:youki
+    name: youki
+    description: >-
+      youki is a container runtime written in Rust that implements the OCI runtime specification as an alternative to runc.
+    humanURL: https://github.com/youki-dev/youki
+    tags:
+      - Containers
+    properties: []
+common:
+  - type: Website
+    url: https://github.com/youki-dev/youki
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
