@@ -1,5 +1,5 @@
 aid: youki
-name: youki
+name: Youki
 description: >-
   youki is a container runtime written in Rust that implements the OCI runtime specification as an alternative to runc.
 type: Index
@@ -13,7 +13,7 @@ modified: '2026-03-26'
 specificationVersion: '0.19'
 apis:
   - aid: youki:youki
-    name: youki
+    name: Youki
     description: >-
       youki is a container runtime written in Rust that implements the OCI runtime specification as an alternative to runc.
     humanURL: https://github.com/youki-dev/youki
