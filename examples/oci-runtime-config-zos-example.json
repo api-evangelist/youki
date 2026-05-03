@@ -1,0 +1,14 @@
+{
+  "zos": {
+    "namespaces": [
+      {
+        "type": "pid",
+        "path": "/etc/config"
+      },
+      {
+        "type": "ipc",
+        "path": "/"
+      }
+    ]
+  }
+}

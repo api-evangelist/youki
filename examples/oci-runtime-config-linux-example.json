@@ -1,0 +1,274 @@
+{
+  "linux": {
+    "devices": [
+      {
+        "type": "example-5126",
+        "path": "/var/log",
+        "fileMode": 469,
+        "major": 508,
+        "minor": 187,
+        "uid": 26547,
+        "gid": 0
+      },
+      {
+        "type": "example-0f29",
+        "path": "/",
+        "fileMode": 265,
+        "major": 789,
+        "minor": 975,
+        "uid": 59921,
+        "gid": 45932
+      }
+    ],
+    "netDevices": {
+      "key-a36f": {
+        "name": "example-7311"
+      }
+    },
+    "uidMappings": [
+      {
+        "containerID": 707,
+        "hostID": 249,
+        "size": 314835
+      },
+      {
+        "containerID": 172,
+        "hostID": 514,
+        "size": 377307
+      }
+    ],
+    "gidMappings": [
+      {
+        "containerID": 263,
+        "hostID": 424,
+        "size": 895631
+      },
+      {
+        "containerID": 628,
+        "hostID": 64,
+        "size": 113756
+      }
+    ],
+    "namespaces": [
+      {
+        "type": "cgroup",
+        "path": "/var/log"
+      },
+      {
+        "type": "pid",
+        "path": "/"
+      }
+    ],
+    "resources": {
+      "unified": {
+        "label-f191": "example-c96c"
+      },
+      "devices": [
+        {
+          "allow": true,
+          "type": "example-8c42",
+          "major": 31,
+          "minor": 505,
+          "access": "example-6fde"
+        },
+        {
+          "allow": false,
+          "type": "example-76e8",
+          "major": 385,
+          "minor": 193,
+          "access": "example-7590"
+        }
+      ],
+      "pids": {
+        "limit": 846
+      },
+      "blockIO": {
+        "weight": 28,
+        "leafWeight": 472,
+        "throttleReadBpsDevice": [
+          {
+            "major": 79,
+            "minor": 29
+          },
+          {
+            "major": 111,
+            "minor": 577
+          }
+        ],
+        "throttleWriteBpsDevice": [
+          {
+            "major": 844,
+            "minor": 741
+          },
+          {
+            "major": 750,
+            "minor": 414
+          }
+        ],
+        "throttleReadIOPSDevice": [
+          {
+            "major": 701,
+            "minor": 258
+          },
+          {
+            "major": 803,
+            "minor": 671
+          }
+        ],
+        "throttleWriteIOPSDevice": [
+          {
+            "major": 258,
+            "minor": 750
+          },
+          {
+            "major": 920,
+            "minor": 373
+          }
+        ],
+        "weightDevice": [
+          {
+            "major": 249,
+            "minor": 952
+          },
+          {
+            "major": 416,
+            "minor": 164
+          }
+        ]
+      },
+      "cpu": {
+        "cpus": "example-4e5b",
+        "mems": "example-05a4",
+        "period": 7,
+        "quota": 993,
+        "burst": 703,
+        "realtimePeriod": 128,
+        "realtimeRuntime": 481,
+        "shares": 2,
+        "idle": 937
+      },
+      "hugepageLimits": [
+        {
+          "pageSize": "example-f8f3",
+          "limit": 567
+        },
+        {
+          "pageSize": "example-213e",
+          "limit": 161
+        }
+      ],
+      "memory": {
+        "kernel": 261,
+        "kernelTCP": 255,
+        "limit": 212,
+        "reservation": 440,
+        "swap": 279,
+        "swappiness": 343,
+        "disableOOMKiller": true,
+        "useHierarchy": false,
+        "checkBeforeUpdate": false
+      },
+      "network": {
+        "classID": 163,
+        "priorities": [
+          {
+            "name": "example-2dd7",
+            "priority": 790
+          },
+          {
+            "name": "example-b645",
+            "priority": 560
+          }
+        ]
+      },
+      "rdma": {
+        "key-6d32": {
+          "hcaHandles": 321,
+          "hcaObjects": 406
+        }
+      }
+    },
+    "cgroupsPath": "example-d7e8",
+    "rootfsPropagation": "shared",
+    "seccomp": {
+      "defaultAction": "SCMP_ACT_KILL",
+      "defaultErrnoRet": 777,
+      "flags": [
+        "SECCOMP_FILTER_FLAG_TSYNC",
+        "SECCOMP_FILTER_FLAG_LOG"
+      ],
+      "listenerPath": "example-59e9",
+      "listenerMetadata": "example-3f43",
+      "architectures": [
+        "SCMP_ARCH_MIPS64",
+        "SCMP_ARCH_PARISC64"
+      ],
+      "syscalls": [
+        {
+          "names": [
+            "example-1244",
+            "example-7e01"
+          ],
+          "action": "SCMP_ACT_KILL_PROCESS",
+          "errnoRet": 697,
+          "args": [
+            "sh",
+            "-c",
+            "echo hello"
+          ]
+        },
+        {
+          "names": [
+            "example-7e29",
+            "example-ce96"
+          ],
+          "action": "SCMP_ACT_LOG",
+          "errnoRet": 317
+        }
+      ]
+    },
+    "sysctl": {
+      "label-ac56": "example-1370"
+    },
+    "maskedPaths": [
+      "example-95b8",
+      "example-6886"
+    ],
+    "readonlyPaths": [
+      "example-bb32",
+      "example-0cff"
+    ],
+    "mountLabel": "example-4f81",
+    "intelRdt": {
+      "closID": "56f8518469b0",
+      "schemata": [
+        "example-0df4",
+        "example-6ca9"
+      ],
+      "l3CacheSchema": "example-25ae",
+      "memBwSchema": "example-e757",
+      "enableMonitoring": false
+    },
+    "memoryPolicy": {
+      "mode": "MPOL_PREFERRED_MANY",
+      "nodes": "example-b5f4",
+      "flags": [
+        "MPOL_F_STATIC_NODES",
+        "MPOL_F_RELATIVE_NODES"
+      ]
+    },
+    "personality": {
+      "domain": "LINUX32",
+      "flags": [
+        "example-f556",
+        "example-7827"
+      ]
+    },
+    "timeOffsets": {
+      "monotonic": {
+        "secs": 734,
+        "nanosecs": 732
+      }
+    }
+  }
+}

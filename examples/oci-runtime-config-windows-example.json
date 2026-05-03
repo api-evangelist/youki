@@ -1,0 +1,52 @@
+{
+  "windows": {
+    "layerFolders": [
+      "example-08cd",
+      "example-0e2e"
+    ],
+    "devices": [
+      {
+        "id": "example-803d",
+        "idType": "class"
+      },
+      {
+        "id": "example-d9d1",
+        "idType": "class"
+      }
+    ],
+    "resources": {
+      "memory": {},
+      "cpu": {
+        "count": 792,
+        "shares": 430,
+        "maximum": 752,
+        "affinity": {
+          "mask": 1,
+          "group": 814
+        }
+      },
+      "storage": {
+        "iops": 640,
+        "bps": 975,
+        "sandboxSize": 108
+      }
+    },
+    "network": {
+      "endpointList": [
+        "example-660e",
+        "example-fdc8"
+      ],
+      "allowUnqualifiedDNSQuery": false,
+      "DNSSearchList": [
+        "example-45a4",
+        "example-785e"
+      ],
+      "networkSharedContainerName": "example-903a"
+    },
+    "credentialSpec": {},
+    "ignoreFlushesDuringBoot": true,
+    "hyperv": {
+      "utilityVMPath": "example-7ca8"
+    }
+  }
+}

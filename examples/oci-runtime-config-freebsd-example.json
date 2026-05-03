@@ -1,0 +1,49 @@
+{
+  "freebsd": {
+    "devices": [
+      {
+        "path": "/",
+        "mode": 91
+      },
+      {
+        "path": "/usr/local/bin",
+        "mode": 315
+      }
+    ],
+    "jail": {
+      "host": "new",
+      "ip4": "inherit",
+      "ip4Addr": [
+        "example-a39c",
+        "example-cfca"
+      ],
+      "ip6": "inherit",
+      "ip6Addr": [
+        "example-b07f",
+        "example-5b75"
+      ],
+      "vnet": "inherit",
+      "interface": "example-a675",
+      "vnetInterfaces": [
+        "example-d493",
+        "example-12b3"
+      ],
+      "sysvmsg": "new",
+      "sysvsem": "new",
+      "sysvshm": "inherit",
+      "enforceStatfs": 133,
+      "allow": {
+        "setHostname": false,
+        "rawSockets": true,
+        "chflags": false,
+        "mount": [
+          "example-a8b2",
+          "example-03a2"
+        ],
+        "socketAf": false,
+        "mlock": true,
+        "suser": false
+      }
+    }
+  }
+}

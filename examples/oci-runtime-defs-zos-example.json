@@ -1,0 +1,7 @@
+{
+  "NamespaceType": "pid",
+  "NamespaceReference": {
+    "type": "mount",
+    "path": "/var/log"
+  }
+}

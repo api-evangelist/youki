@@ -1,0 +1,210 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/youki/refs/heads/main/json-structure/oci-runtime-defs-structure.json",
+  "name": "OciRuntimeDefs",
+  "description": "Definitions used throughout the Open Container Initiative Runtime Specification",
+  "definitions": {
+    "int8": {
+      "name": "int8",
+      "type": "int32",
+      "minimum": -128,
+      "maximum": 127
+    },
+    "int16": {
+      "name": "int16",
+      "type": "int32",
+      "minimum": -32768,
+      "maximum": 32767
+    },
+    "int32": {
+      "name": "int32",
+      "type": "int32",
+      "minimum": -2147483648,
+      "maximum": 2147483647
+    },
+    "int64": {
+      "name": "int64",
+      "type": "int32",
+      "minimum": -9223372036854775808,
+      "maximum": 9223372036854775807
+    },
+    "uint8": {
+      "name": "uint8",
+      "type": "int32",
+      "minimum": 0,
+      "maximum": 255
+    },
+    "uint16": {
+      "name": "uint16",
+      "type": "int32",
+      "minimum": 0,
+      "maximum": 65535
+    },
+    "uint32": {
+      "name": "uint32",
+      "type": "int32",
+      "minimum": 0,
+      "maximum": 4294967295
+    },
+    "uint64": {
+      "name": "uint64",
+      "type": "int32",
+      "minimum": 0,
+      "maximum": 18446744073709551615
+    },
+    "percent": {
+      "name": "percent",
+      "type": "int32",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "mapStringString": {
+      "name": "mapStringString",
+      "type": "object",
+      "patternProperties": {
+        ".{1,}": {
+          "type": "string"
+        }
+      }
+    },
+    "UID": {
+      "name": "UID",
+      "$ref": "#/definitions/uint32"
+    },
+    "GID": {
+      "name": "GID",
+      "$ref": "#/definitions/uint32"
+    },
+    "Umask": {
+      "name": "Umask",
+      "$ref": "#/definitions/uint32"
+    },
+    "ArrayOfGIDs": {
+      "name": "ArrayOfGIDs",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/GID"
+      }
+    },
+    "ArrayOfStrings": {
+      "name": "ArrayOfStrings",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ArrayOfUint32": {
+      "name": "ArrayOfUint32",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/uint32"
+      }
+    },
+    "FileMode": {
+      "name": "FileMode",
+      "description": "File permissions mode (in decimal, not octal)",
+      "type": "int32",
+      "minimum": 0,
+      "maximum": 511
+    },
+    "FilePath": {
+      "name": "FilePath",
+      "type": "string"
+    },
+    "Env": {
+      "name": "Env",
+      "$ref": "#/definitions/ArrayOfStrings"
+    },
+    "Hook": {
+      "name": "Hook",
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/FilePath"
+        },
+        "args": {
+          "$ref": "#/definitions/ArrayOfStrings"
+        },
+        "env": {
+          "$ref": "#/definitions/Env"
+        },
+        "timeout": {
+          "type": "int32",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "path"
+      ]
+    },
+    "ArrayOfHooks": {
+      "name": "ArrayOfHooks",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Hook"
+      }
+    },
+    "IDMapping": {
+      "name": "IDMapping",
+      "type": "object",
+      "properties": {
+        "containerID": {
+          "$ref": "#/definitions/uint32"
+        },
+        "hostID": {
+          "$ref": "#/definitions/uint32"
+        },
+        "size": {
+          "$ref": "#/definitions/uint32"
+        }
+      },
+      "required": [
+        "containerID",
+        "hostID",
+        "size"
+      ]
+    },
+    "Mount": {
+      "name": "Mount",
+      "type": "object",
+      "properties": {
+        "source": {
+          "$ref": "#/definitions/FilePath"
+        },
+        "destination": {
+          "$ref": "#/definitions/FilePath"
+        },
+        "options": {
+          "$ref": "#/definitions/ArrayOfStrings"
+        },
+        "type": {
+          "type": "string"
+        },
+        "uidMappings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IDMapping"
+          }
+        },
+        "gidMappings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IDMapping"
+          }
+        }
+      },
+      "required": [
+        "destination"
+      ]
+    },
+    "ociVersion": {
+      "name": "ociVersion",
+      "description": "The version of Open Container Initiative Runtime Specification that the document complies with",
+      "type": "string"
+    },
+    "annotations": {
+      "name": "annotations",
+      "$ref": "#/definitions/mapStringString"
+    }
+  }
+}

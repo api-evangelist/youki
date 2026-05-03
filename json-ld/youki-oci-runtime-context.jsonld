@@ -1,0 +1,392 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "oci": "https://opencontainers.org/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "BlockIODevice": "oci:BlockIODevice",
+    "BlockIODeviceWeight": "oci:BlockIODeviceWeight",
+    "Device": "oci:Device",
+    "DeviceCgroup": "oci:DeviceCgroup",
+    "Hook": "oci:Hook",
+    "IDMapping": "oci:IDMapping",
+    "IOMemEntryFormat": "oci:IOMemEntryFormat",
+    "MapStringString": "oci:MapStringString",
+    "Mount": "oci:Mount",
+    "NamespaceReference": "oci:NamespaceReference",
+    "NetDevice": "oci:NetDevice",
+    "NetworkInterfacePriority": "oci:NetworkInterfacePriority",
+    "OciRuntimeConfig": "oci:OciRuntimeConfig",
+    "OciRuntimeFeatures": "oci:OciRuntimeFeatures",
+    "OciRuntimeState": "oci:OciRuntimeState",
+    "Personality": "oci:Personality",
+    "Rdma": "oci:Rdma",
+    "Syscall": "oci:Syscall",
+    "SyscallArg": "oci:SyscallArg",
+    "TimeOffsets": "oci:TimeOffsets",
+    "access": {
+      "@id": "oci:access",
+      "@type": "xsd:string"
+    },
+    "action": {
+      "@id": "oci:action"
+    },
+    "additionalGids": {
+      "@id": "oci:additional_gids"
+    },
+    "allow": {
+      "@id": "oci:allow",
+      "@type": "xsd:boolean"
+    },
+    "ambient": {
+      "@id": "oci:ambient"
+    },
+    "annotations": {
+      "@id": "oci:annotations"
+    },
+    "apparmorProfile": {
+      "@id": "oci:apparmor_profile",
+      "@type": "xsd:string"
+    },
+    "args": {
+      "@id": "oci:args"
+    },
+    "bounding": {
+      "@id": "oci:bounding"
+    },
+    "bundle": {
+      "@id": "oci:bundle",
+      "@type": "xsd:string"
+    },
+    "capabilities": {
+      "@id": "oci:capabilities",
+      "@type": "@id"
+    },
+    "class": {
+      "@id": "oci:class",
+      "@type": "xsd:string"
+    },
+    "commandLine": {
+      "@id": "oci:command_line",
+      "@type": "xsd:string"
+    },
+    "consoleSize": {
+      "@id": "oci:console_size",
+      "@type": "@id"
+    },
+    "containerID": {
+      "@id": "oci:container_id"
+    },
+    "createContainer": {
+      "@id": "oci:create_container"
+    },
+    "createRuntime": {
+      "@id": "oci:create_runtime"
+    },
+    "cwd": {
+      "@id": "oci:cwd",
+      "@type": "xsd:string"
+    },
+    "deadline": {
+      "@id": "oci:deadline"
+    },
+    "destination": {
+      "@id": "oci:destination"
+    },
+    "domain": {
+      "@id": "oci:domain"
+    },
+    "domainname": {
+      "@id": "oci:domainname",
+      "@type": "xsd:string"
+    },
+    "effective": {
+      "@id": "oci:effective"
+    },
+    "env": {
+      "@id": "oci:env"
+    },
+    "errnoRet": {
+      "@id": "oci:errno_ret"
+    },
+    "execCPUAffinity": {
+      "@id": "oci:exec_cpu_affinity",
+      "@type": "@id"
+    },
+    "fileMode": {
+      "@id": "oci:file_mode"
+    },
+    "final": {
+      "@id": "oci:final",
+      "@type": "xsd:string"
+    },
+    "firstGFN": {
+      "@id": "oci:first_gfn"
+    },
+    "firstMFN": {
+      "@id": "oci:first_mfn"
+    },
+    "flags": {
+      "@id": "oci:flags",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "freebsd": {
+      "@id": "oci:freebsd"
+    },
+    "gid": {
+      "@id": "oci:gid"
+    },
+    "gidMappings": {
+      "@id": "oci:gid_mappings",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "hard": {
+      "@id": "oci:hard"
+    },
+    "hcaHandles": {
+      "@id": "oci:hca_handles"
+    },
+    "hcaObjects": {
+      "@id": "oci:hca_objects"
+    },
+    "height": {
+      "@id": "oci:height"
+    },
+    "hooks": {
+      "@id": "oci:hooks",
+      "@type": "@id"
+    },
+    "hostID": {
+      "@id": "oci:host_id"
+    },
+    "hostname": {
+      "@id": "oci:hostname",
+      "@type": "xsd:string"
+    },
+    "id": {
+      "@id": "oci:id",
+      "@type": "xsd:string"
+    },
+    "idType": {
+      "@id": "oci:id_type",
+      "@type": "xsd:string"
+    },
+    "index": {
+      "@id": "oci:index"
+    },
+    "inheritable": {
+      "@id": "oci:inheritable"
+    },
+    "initial": {
+      "@id": "oci:initial",
+      "@type": "xsd:string"
+    },
+    "ioPriority": {
+      "@id": "oci:io_priority",
+      "@type": "@id"
+    },
+    "leafWeight": {
+      "@id": "oci:leaf_weight"
+    },
+    "linux": {
+      "@id": "oci:linux"
+    },
+    "major": {
+      "@id": "oci:major"
+    },
+    "minor": {
+      "@id": "oci:minor"
+    },
+    "mode": {
+      "@id": "oci:mode"
+    },
+    "mountOptions": {
+      "@id": "oci:mount_options"
+    },
+    "mounts": {
+      "@id": "oci:mounts",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "names": {
+      "@id": "oci:names",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "nanosecs": {
+      "@id": "oci:nanosecs"
+    },
+    "nice": {
+      "@id": "oci:nice"
+    },
+    "noNewPrivileges": {
+      "@id": "oci:no_new_privileges",
+      "@type": "xsd:boolean"
+    },
+    "nrMFNs": {
+      "@id": "oci:nr_mf_ns"
+    },
+    "ociVersion": {
+      "@id": "oci:oci_version"
+    },
+    "ociVersionMax": {
+      "@id": "oci:oci_version_max"
+    },
+    "ociVersionMin": {
+      "@id": "oci:oci_version_min"
+    },
+    "oomScoreAdj": {
+      "@id": "oci:oom_score_adj",
+      "@type": "xsd:integer"
+    },
+    "op": {
+      "@id": "oci:op"
+    },
+    "options": {
+      "@id": "oci:options"
+    },
+    "path": {
+      "@id": "oci:path"
+    },
+    "period": {
+      "@id": "oci:period"
+    },
+    "permitted": {
+      "@id": "oci:permitted"
+    },
+    "pid": {
+      "@id": "oci:pid",
+      "@type": "xsd:integer"
+    },
+    "policy": {
+      "@id": "oci:policy"
+    },
+    "poststart": {
+      "@id": "oci:poststart"
+    },
+    "poststop": {
+      "@id": "oci:poststop"
+    },
+    "potentiallyUnsafeConfigAnnotations": {
+      "@id": "oci:potentially_unsafe_config_annotations"
+    },
+    "prestart": {
+      "@id": "oci:prestart"
+    },
+    "priority": {
+      "@id": "oci:priority"
+    },
+    "process": {
+      "@id": "oci:process",
+      "@type": "@id"
+    },
+    "rate": {
+      "@id": "oci:rate"
+    },
+    "readonly": {
+      "@id": "oci:readonly",
+      "@type": "xsd:boolean"
+    },
+    "rlimits": {
+      "@id": "oci:rlimits",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "root": {
+      "@id": "oci:root",
+      "@type": "@id"
+    },
+    "runtime": {
+      "@id": "oci:runtime"
+    },
+    "scheduler": {
+      "@id": "oci:scheduler",
+      "@type": "@id"
+    },
+    "secs": {
+      "@id": "oci:secs"
+    },
+    "selinuxLabel": {
+      "@id": "oci:selinux_label",
+      "@type": "xsd:string"
+    },
+    "size": {
+      "@id": "oci:size"
+    },
+    "soft": {
+      "@id": "oci:soft"
+    },
+    "solaris": {
+      "@id": "oci:solaris"
+    },
+    "source": {
+      "@id": "oci:source"
+    },
+    "startContainer": {
+      "@id": "oci:start_container"
+    },
+    "status": {
+      "@id": "oci:status",
+      "@type": "xsd:string"
+    },
+    "terminal": {
+      "@id": "oci:terminal",
+      "@type": "xsd:boolean"
+    },
+    "timeout": {
+      "@id": "oci:timeout",
+      "@type": "xsd:integer"
+    },
+    "type": {
+      "@id": "oci:type",
+      "@type": "xsd:string"
+    },
+    "uid": {
+      "@id": "oci:uid"
+    },
+    "uidMappings": {
+      "@id": "oci:uid_mappings",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "umask": {
+      "@id": "oci:umask"
+    },
+    "user": {
+      "@id": "oci:user",
+      "@type": "@id"
+    },
+    "username": {
+      "@id": "oci:username",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "oci:value"
+    },
+    "valueTwo": {
+      "@id": "oci:value_two"
+    },
+    "vm": {
+      "@id": "oci:vm"
+    },
+    "weight": {
+      "@id": "oci:weight"
+    },
+    "width": {
+      "@id": "oci:width"
+    },
+    "windows": {
+      "@id": "oci:windows"
+    },
+    "zos": {
+      "@id": "oci:zos"
+    }
+  }
+}

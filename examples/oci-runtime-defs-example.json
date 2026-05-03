@@ -1,0 +1,112 @@
+{
+  "int8": 119,
+  "int16": 842,
+  "int32": 27,
+  "int64": 315,
+  "uint8": 194,
+  "uint16": 641,
+  "uint32": 301,
+  "uint64": 397,
+  "percent": 88,
+  "mapStringString": {
+    "label-7619": "example-3c68"
+  },
+  "UID": 63940,
+  "GID": 0,
+  "Umask": 18,
+  "ArrayOfGIDs": [
+    657,
+    525
+  ],
+  "ArrayOfStrings": [
+    "example-94cb",
+    "example-8f2c"
+  ],
+  "ArrayOfUint32": [
+    539,
+    364
+  ],
+  "FileMode": 364,
+  "FilePath": "/etc/config",
+  "Env": [
+    "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+    "TERM=xterm"
+  ],
+  "Hook": {
+    "path": "/etc/config",
+    "args": [
+      "sh",
+      "-c",
+      "echo hello"
+    ],
+    "env": [
+      "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "TERM=xterm"
+    ]
+  },
+  "ArrayOfHooks": [
+    {
+      "path": "/etc/config",
+      "args": [
+        "sh",
+        "-c",
+        "echo hello"
+      ],
+      "env": [
+        "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "TERM=xterm"
+      ],
+      "timeout": 921
+    },
+    {
+      "path": "/var/log",
+      "env": [
+        "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "TERM=xterm"
+      ],
+      "timeout": 189
+    }
+  ],
+  "IDMapping": {
+    "containerID": 820,
+    "hostID": 674,
+    "size": 243028
+  },
+  "Mount": {
+    "source": "/tmp",
+    "destination": "/etc/config",
+    "options": [
+      "example-feb9",
+      "example-a280"
+    ],
+    "type": "example-578c",
+    "uidMappings": [
+      {
+        "containerID": 693,
+        "hostID": 561,
+        "size": 638344
+      },
+      {
+        "containerID": 483,
+        "hostID": 448,
+        "size": 812264
+      }
+    ],
+    "gidMappings": [
+      {
+        "containerID": 685,
+        "hostID": 999,
+        "size": 243231
+      },
+      {
+        "containerID": 810,
+        "hostID": 310,
+        "size": 768039
+      }
+    ]
+  },
+  "ociVersion": "1.0.2",
+  "annotations": {
+    "label-10cb": "example-291a"
+  }
+}

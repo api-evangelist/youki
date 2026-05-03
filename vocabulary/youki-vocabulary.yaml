@@ -1,0 +1,1278 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: "Youki"
+  description: >-
+    Vocabulary for the youki CNCF sandbox container runtime and the
+    oci-spec-rs companion crate. youki is a CLI/library, not an HTTP API,
+    so the operational dimension captures CLI commands, Rust SDK crates,
+    and the OCI Runtime / OCI Image JSON Schemas that youki consumes and
+    produces. The capability dimension captures the integrations, use
+    cases, and personas that compose those primitives into customer-facing
+    container workflows.
+  created: "2026-05-03"
+  modified: "2026-05-03"
+
+# OPERATIONAL DIMENSION
+# youki exposes its surface through a CLI (via liboci-cli), Rust library
+# crates (libcontainer, libcgroups, oci-spec), and the OCI Runtime / OCI
+# Image JSON Schemas. There is no HTTP API; "resources" here are the
+# domain objects defined by the OCI specifications.
+operational:
+
+  apis:
+    - aid: "youki:youki"
+      name: "Youki Container Runtime"
+      namespace: "youki"
+      version: "0.6.0"
+      surface: "CLI + Rust SDK"
+      humanURL: "https://github.com/youki-dev/youki"
+      status: "active"
+      tags:
+        - "Container Runtime"
+        - "OCI"
+        - "Rust"
+        - "CNCF"
+    - aid: "youki:oci-spec-rs"
+      name: "OCI Spec for Rust"
+      namespace: "oci-spec"
+      version: "0.9.0"
+      surface: "Rust SDK"
+      humanURL: "https://github.com/youki-dev/oci-spec-rs"
+      status: "active"
+      tags:
+        - "OCI"
+        - "Rust"
+        - "Specification"
+
+  resources:
+    - name: "container"
+      api: "youki:youki"
+      description: "A running, paused, or stopped OCI container instance managed by youki on the host."
+      actions:
+        - "create"
+        - "run"
+        - "start"
+        - "exec"
+        - "kill"
+        - "pause"
+        - "resume"
+        - "delete"
+        - "list"
+        - "state"
+        - "update"
+        - "checkpoint"
+      schema: "OciRuntimeState"
+      tags:
+        - "Container Runtime"
+        - "OCI"
+    - name: "bundle"
+      api: "youki:youki"
+      description: "A directory on disk containing config.json plus the container's root filesystem; the input youki consumes to create a container."
+      actions:
+        - "spec"
+        - "create"
+        - "run"
+      schema: "OciRuntimeConfig"
+      tags:
+        - "OCI"
+        - "Container Runtime"
+    - name: "process"
+      api: "youki:youki"
+      description: "A process executing inside a container, including the initial container process and any additional exec'd processes."
+      actions:
+        - "exec"
+        - "ps"
+        - "kill"
+      schema: "OciRuntimeConfig.process"
+      tags:
+        - "Container Runtime"
+        - "Linux"
+    - name: "events"
+      api: "youki:youki"
+      description: "Streamed resource statistics (CPU, memory, blkio, pids) emitted by the runtime for a container."
+      actions:
+        - "events"
+      tags:
+        - "Observability"
+        - "Container Runtime"
+    - name: "features"
+      api: "youki:youki"
+      description: "Capability descriptor advertised by the runtime — supported namespaces, capabilities, seccomp actions, cgroup versions, etc."
+      actions:
+        - "features"
+      schema: "OciRuntimeFeatures"
+      tags:
+        - "OCI"
+        - "Capabilities"
+    - name: "checkpoint"
+      api: "youki:youki"
+      description: "A CRIU-based snapshot of a running container's state, written to disk for later restore."
+      actions:
+        - "checkpoint"
+      tags:
+        - "Container Runtime"
+        - "CRIU"
+    - name: "cgroup"
+      api: "youki:youki"
+      description: "Linux control group hierarchy applied to a container for CPU, memory, IO, PID, and device limits; supports v1, v2, and systemd-managed cgroups."
+      actions:
+        - "update"
+        - "create"
+      schema: "OciRuntimeConfig.linux.resources"
+      tags:
+        - "Linux"
+        - "Cgroups"
+    - name: "namespace"
+      api: "youki:youki"
+      description: "Linux namespace (mount, pid, network, uts, ipc, user, cgroup, time) used to isolate a container."
+      actions:
+        - "create"
+      schema: "NamespaceReference"
+      tags:
+        - "Linux"
+        - "Namespaces"
+    - name: "seccomp-profile"
+      api: "youki:youki"
+      description: "Seccomp BPF filter applied to syscalls available inside a container."
+      actions:
+        - "create"
+      schema: "OciRuntimeConfig.linux.seccomp"
+      tags:
+        - "Linux"
+        - "Seccomp"
+        - "Security"
+    - name: "capability"
+      api: "youki:youki"
+      description: "Linux capability set (bounding/permitted/effective/inheritable/ambient) applied to a container's process."
+      schema: "OciRuntimeConfig.process.capabilities"
+      tags:
+        - "Linux"
+        - "Capabilities"
+        - "Security"
+    - name: "mount"
+      api: "youki:youki"
+      description: "Filesystem mount injected into a container (bind, tmpfs, proc, sysfs, etc.)."
+      schema: "Mount"
+      tags:
+        - "Filesystem"
+        - "OCI"
+    - name: "hook"
+      api: "youki:youki"
+      description: "Lifecycle hook invoked at prestart, createRuntime, createContainer, startContainer, poststart, or poststop."
+      schema: "Hook"
+      tags:
+        - "OCI"
+        - "Lifecycle"
+    - name: "image"
+      api: "youki:oci-spec-rs"
+      description: "An OCI container image consisting of a manifest, config, and layer descriptors."
+      schema: "OciImageManifest"
+      tags:
+        - "OCI Image"
+        - "Container Image"
+    - name: "image-index"
+      api: "youki:oci-spec-rs"
+      description: "Multi-platform image index listing manifests for each architecture/OS variant."
+      schema: "OciImageIndex"
+      tags:
+        - "OCI Image"
+        - "Multi-Arch"
+    - name: "image-layout"
+      api: "youki:oci-spec-rs"
+      description: "On-disk OCI image layout (oci-layout file plus blobs and index)."
+      schema: "OciImageLayout"
+      tags:
+        - "OCI Image"
+        - "Filesystem"
+    - name: "descriptor"
+      api: "youki:oci-spec-rs"
+      description: "Content descriptor referencing an OCI blob by mediaType, digest, and size."
+      schema: "OciImageContentDescriptor"
+      tags:
+        - "OCI Image"
+        - "Content Addressable"
+
+  actions:
+    - name: "create"
+      verb: "create"
+      pattern: "write"
+      description: "Create a container in the 'created' state from a bundle, without starting its process."
+      cli: "youki create <container-id>"
+      sdkSymbol: "libcontainer::container::ContainerBuilder::create"
+    - name: "run"
+      verb: "run"
+      pattern: "write"
+      description: "Create a container and immediately start it (create + start in a single call)."
+      cli: "youki run <container-id>"
+    - name: "start"
+      verb: "start"
+      pattern: "write"
+      description: "Start a previously created container's process."
+      cli: "youki start <container-id>"
+    - name: "exec"
+      verb: "exec"
+      pattern: "write"
+      description: "Execute an additional process inside an already running container."
+      cli: "youki exec <container-id> <cmd>"
+    - name: "kill"
+      verb: "kill"
+      pattern: "write"
+      description: "Send a signal (KILL, TERM, etc.) to the container's init process."
+      cli: "youki kill <container-id> <signal>"
+    - name: "pause"
+      verb: "pause"
+      pattern: "write"
+      description: "Suspend all processes inside a container via the freezer cgroup."
+      cli: "youki pause <container-id>"
+    - name: "resume"
+      verb: "resume"
+      pattern: "write"
+      description: "Resume the previously paused processes inside a container."
+      cli: "youki resume <container-id>"
+    - name: "delete"
+      verb: "delete"
+      pattern: "destructive"
+      description: "Release any resources held by a stopped (or, with --force, running) container."
+      cli: "youki delete <container-id>"
+    - name: "list"
+      verb: "list"
+      pattern: "read"
+      description: "List containers known to the runtime, in table or JSON format."
+      cli: "youki list"
+    - name: "state"
+      verb: "state"
+      pattern: "read"
+      description: "Return the OCI runtime state document for a container (id, status, pid, bundle, annotations)."
+      cli: "youki state <container-id>"
+    - name: "ps"
+      verb: "ps"
+      pattern: "read"
+      description: "Display the host-visible processes running inside a container."
+      cli: "youki ps <container-id>"
+    - name: "events"
+      verb: "events"
+      pattern: "query"
+      description: "Stream resource statistics (CPU, memory, blkio, pids) for a container at an interval."
+      cli: "youki events <container-id>"
+    - name: "update"
+      verb: "update"
+      pattern: "write"
+      description: "Update cgroup resource limits (CPU, memory, pids, blkio) on a running container."
+      cli: "youki update <container-id>"
+    - name: "spec"
+      verb: "spec"
+      pattern: "write"
+      description: "Generate a default config.json for a bundle directory; supports a --rootless preset."
+      cli: "youki spec"
+    - name: "features"
+      verb: "features"
+      pattern: "read"
+      description: "Return the runtime features document advertising namespaces, capabilities, seccomp, cgroups support."
+      cli: "youki features"
+    - name: "checkpoint"
+      verb: "checkpoint"
+      pattern: "write"
+      description: "Snapshot a running container's process tree to disk via CRIU."
+      cli: "youki checkpoint <container-id>"
+    - name: "info"
+      verb: "info"
+      pattern: "read"
+      description: "Show youki-specific runtime info (version, build, host capabilities)."
+      cli: "youki info"
+
+  schemas:
+
+    runtime-core:
+      - name: "OciRuntimeConfig"
+        file: "json-schema/oci-runtime-config-schema.json"
+        description: "Top-level container configuration consumed by the runtime (config.json in a bundle)."
+        keyProperties:
+          - "ociVersion"
+          - "process"
+          - "root"
+          - "mounts"
+          - "hooks"
+          - "annotations"
+          - "linux"
+          - "windows"
+          - "solaris"
+          - "vm"
+          - "zos"
+          - "freebsd"
+      - name: "OciRuntimeState"
+        file: "json-schema/oci-runtime-state-schema.json"
+        description: "Runtime state document returned by `state` describing a single container."
+        keyProperties:
+          - "ociVersion"
+          - "id"
+          - "status"
+          - "pid"
+          - "bundle"
+          - "annotations"
+      - name: "OciRuntimeFeatures"
+        file: "json-schema/oci-runtime-features-schema.json"
+        description: "Runtime features document advertising what the runtime supports."
+        keyProperties:
+          - "ociVersionMin"
+          - "ociVersionMax"
+          - "hooks"
+          - "mountOptions"
+          - "annotations"
+          - "linux"
+      - name: "Mount"
+        file: "json-schema/oci-runtime-defs.json"
+        description: "Filesystem mount injected into the container."
+        keyProperties:
+          - "source"
+          - "destination"
+          - "type"
+          - "options"
+          - "uidMappings"
+          - "gidMappings"
+      - name: "Hook"
+        file: "json-schema/oci-runtime-defs.json"
+        description: "Lifecycle hook invocation (path + args + env + timeout)."
+        keyProperties:
+          - "path"
+          - "args"
+          - "env"
+          - "timeout"
+      - name: "IDMapping"
+        file: "json-schema/oci-runtime-defs.json"
+        description: "uid/gid mapping for user-namespaced containers."
+        keyProperties:
+          - "containerID"
+          - "hostID"
+          - "size"
+
+    runtime-linux:
+      - name: "LinuxConfig"
+        file: "json-schema/oci-runtime-config-linux.json"
+        description: "Linux-specific container configuration (namespaces, cgroups, seccomp, devices, sysctls, intelRdt)."
+        keyProperties:
+          - "namespaces"
+          - "resources"
+          - "seccomp"
+          - "devices"
+          - "uidMappings"
+          - "gidMappings"
+          - "cgroupsPath"
+          - "rootfsPropagation"
+          - "maskedPaths"
+          - "readonlyPaths"
+          - "intelRdt"
+          - "memoryPolicy"
+          - "personality"
+      - name: "LinuxFeatures"
+        file: "json-schema/oci-runtime-features-linux.json"
+        description: "Linux-specific feature support (cgroup v1/v2, seccomp actions/flags, apparmor, selinux, intelRdt, idmap mounts, netDevices)."
+      - name: "Device"
+        file: "json-schema/oci-runtime-defs-linux.json"
+        description: "Device file (block/char/pipe) exposed inside the container."
+      - name: "DeviceCgroup"
+        file: "json-schema/oci-runtime-defs-linux.json"
+        description: "Device cgroup allow/deny rule."
+      - name: "Syscall"
+        file: "json-schema/oci-runtime-defs-linux.json"
+        description: "Seccomp syscall filter rule (names + action + args)."
+      - name: "NamespaceReference"
+        file: "json-schema/oci-runtime-defs-linux.json"
+        description: "Linux namespace reference (type + optional path to existing namespace)."
+      - name: "NetDevice"
+        file: "json-schema/oci-runtime-defs-linux.json"
+        description: "Host network device passed into the container."
+      - name: "Personality"
+        file: "json-schema/oci-runtime-defs-linux.json"
+        description: "Linux personality (LINUX/LINUX32 + flags) for compatibility behavior."
+      - name: "Rdma"
+        file: "json-schema/oci-runtime-defs-linux.json"
+        description: "RDMA cgroup limits (HCA handles/objects)."
+
+    runtime-platforms:
+      - name: "WindowsConfig"
+        file: "json-schema/oci-runtime-config-windows.json"
+        description: "Windows-specific container configuration."
+      - name: "SolarisConfig"
+        file: "json-schema/oci-runtime-config-solaris.json"
+        description: "Solaris zones-based container configuration."
+      - name: "FreebsdConfig"
+        file: "json-schema/oci-runtime-config-freebsd.json"
+        description: "FreeBSD jail-based container configuration."
+      - name: "ZosConfig"
+        file: "json-schema/oci-runtime-config-zos.json"
+        description: "z/OS-specific container configuration."
+      - name: "VmConfig"
+        file: "json-schema/oci-runtime-config-vm.json"
+        description: "VM-based container configuration (kata-style runtimes)."
+
+    image:
+      - name: "OciImageManifest"
+        file: "json-schema/oci-image-manifest-schema.json"
+        description: "OCI image manifest pointing to a config and ordered layers."
+        keyProperties:
+          - "schemaVersion"
+          - "mediaType"
+          - "artifactType"
+          - "config"
+          - "subject"
+          - "layers"
+          - "annotations"
+      - name: "OciImageIndex"
+        file: "json-schema/oci-image-index-schema.json"
+        description: "Multi-platform image index referencing per-platform manifests."
+        keyProperties:
+          - "schemaVersion"
+          - "mediaType"
+          - "manifests"
+          - "subject"
+          - "annotations"
+      - name: "OciImageConfig"
+        file: "json-schema/oci-image-config-schema.json"
+        description: "Image configuration (architecture, os, rootfs, history, exec config)."
+        keyProperties:
+          - "architecture"
+          - "os"
+          - "config"
+          - "rootfs"
+          - "history"
+          - "created"
+          - "author"
+      - name: "OciImageLayout"
+        file: "json-schema/oci-image-layout-schema.json"
+        description: "On-disk OCI image layout marker (oci-layout)."
+      - name: "OciImageContentDescriptor"
+        file: "json-schema/oci-image-content-descriptor.json"
+        description: "Generic content descriptor by mediaType/digest/size with optional urls/annotations."
+
+  parameters:
+    identifiers:
+      - name: "container-id"
+        type: "string"
+        description: "Required identifier for nearly every container-scoped subcommand (start/state/kill/delete/exec/pause/resume/update/ps/events/checkpoint)."
+      - name: "id"
+        type: "string"
+        description: "Container ID returned in OciRuntimeState."
+    paths:
+      - name: "bundle"
+        type: "path"
+        description: "Path to the OCI bundle directory containing config.json and the root filesystem."
+      - name: "root"
+        type: "path"
+        description: "Root directory where the runtime stores per-container state."
+      - name: "log"
+        type: "path"
+        description: "Path to the log file the runtime should write to (defaults to /dev/stderr)."
+      - name: "console-socket"
+        type: "path"
+        description: "Unix socket path that receives the master end of the container's pseudoterminal."
+      - name: "pid-file"
+        type: "path"
+        description: "Path the runtime writes the container init PID to."
+    formatting:
+      - name: "format"
+        type: "enum"
+        values:
+          - "table"
+          - "json"
+        description: "Output format for `list` and `ps`."
+      - name: "log-format"
+        type: "enum"
+        values:
+          - "text"
+          - "json"
+        description: "Format of runtime log output."
+      - name: "quiet"
+        type: "boolean"
+        description: "Only emit container IDs from `list`."
+    runtime-flags:
+      - name: "debug"
+        type: "boolean"
+        description: "Raise log level to debug."
+      - name: "systemd-cgroup"
+        type: "boolean"
+        description: "Use the systemd cgroup manager instead of cgroupfs."
+      - name: "rootless"
+        type: "boolean"
+        description: "Generate / run with a rootless-friendly configuration."
+      - name: "force"
+        type: "boolean"
+        description: "Force `delete` to SIGKILL a still-running container."
+      - name: "interval"
+        type: "uint32"
+        description: "Stats collection interval in seconds for `events` (default 5)."
+      - name: "stats"
+        type: "boolean"
+        description: "Display container stats only once instead of streaming."
+
+  enums:
+
+    states:
+      - name: "ContainerStatus"
+        schema: "OciRuntimeState.status"
+        values:
+          - "creating"
+          - "created"
+          - "running"
+          - "stopped"
+
+    namespaces:
+      - name: "NamespaceType"
+        schema: "NamespaceReference.type"
+        values:
+          - "mount"
+          - "pid"
+          - "network"
+          - "uts"
+          - "ipc"
+          - "user"
+          - "cgroup"
+          - "time"
+
+    rootfs:
+      - name: "RootfsPropagation"
+        schema: "LinuxConfig.rootfsPropagation"
+        values:
+          - "private"
+          - "shared"
+          - "slave"
+          - "unbindable"
+
+    seccomp:
+      - name: "SeccompAction"
+        values:
+          - "SCMP_ACT_KILL"
+          - "SCMP_ACT_KILL_PROCESS"
+          - "SCMP_ACT_KILL_THREAD"
+          - "SCMP_ACT_TRAP"
+          - "SCMP_ACT_ERRNO"
+          - "SCMP_ACT_TRACE"
+          - "SCMP_ACT_ALLOW"
+          - "SCMP_ACT_LOG"
+          - "SCMP_ACT_NOTIFY"
+      - name: "SeccompOperator"
+        values:
+          - "SCMP_CMP_NE"
+          - "SCMP_CMP_LT"
+          - "SCMP_CMP_LE"
+          - "SCMP_CMP_EQ"
+          - "SCMP_CMP_GE"
+          - "SCMP_CMP_GT"
+          - "SCMP_CMP_MASKED_EQ"
+      - name: "SeccompFlag"
+        values:
+          - "SECCOMP_FILTER_FLAG_TSYNC"
+          - "SECCOMP_FILTER_FLAG_LOG"
+          - "SECCOMP_FILTER_FLAG_SPEC_ALLOW"
+          - "SECCOMP_FILTER_FLAG_WAIT_KILLABLE_RECV"
+      - name: "SeccompArch"
+        values:
+          - "SCMP_ARCH_X86"
+          - "SCMP_ARCH_X86_64"
+          - "SCMP_ARCH_X32"
+          - "SCMP_ARCH_ARM"
+          - "SCMP_ARCH_AARCH64"
+          - "SCMP_ARCH_LOONGARCH64"
+          - "SCMP_ARCH_M68K"
+          - "SCMP_ARCH_MIPS"
+          - "SCMP_ARCH_MIPS64"
+          - "SCMP_ARCH_MIPS64N32"
+          - "SCMP_ARCH_MIPSEL"
+          - "SCMP_ARCH_MIPSEL64"
+          - "SCMP_ARCH_MIPSEL64N32"
+          - "SCMP_ARCH_PPC"
+          - "SCMP_ARCH_PPC64"
+          - "SCMP_ARCH_PPC64LE"
+          - "SCMP_ARCH_S390"
+          - "SCMP_ARCH_S390X"
+          - "SCMP_ARCH_SH"
+          - "SCMP_ARCH_SHEB"
+          - "SCMP_ARCH_PARISC"
+          - "SCMP_ARCH_PARISC64"
+          - "SCMP_ARCH_RISCV64"
+
+    scheduler:
+      - name: "SchedulerPolicy"
+        values:
+          - "SCHED_OTHER"
+          - "SCHED_FIFO"
+          - "SCHED_RR"
+          - "SCHED_BATCH"
+          - "SCHED_ISO"
+          - "SCHED_IDLE"
+          - "SCHED_DEADLINE"
+      - name: "SchedulerFlag"
+        values:
+          - "SCHED_FLAG_RESET_ON_FORK"
+          - "SCHED_FLAG_RECLAIM"
+          - "SCHED_FLAG_DL_OVERRUN"
+          - "SCHED_FLAG_KEEP_POLICY"
+          - "SCHED_FLAG_KEEP_PARAMS"
+          - "SCHED_FLAG_UTIL_CLAMP_MIN"
+          - "SCHED_FLAG_UTIL_CLAMP_MAX"
+
+    io:
+      - name: "IoPriorityClass"
+        schema: "OciRuntimeConfig.process.ioPriority.class"
+        values:
+          - "IOPRIO_CLASS_RT"
+          - "IOPRIO_CLASS_BE"
+          - "IOPRIO_CLASS_IDLE"
+
+    memory:
+      - name: "MemoryPolicyMode"
+        values:
+          - "MPOL_DEFAULT"
+          - "MPOL_BIND"
+          - "MPOL_INTERLEAVE"
+          - "MPOL_WEIGHTED_INTERLEAVE"
+          - "MPOL_PREFERRED"
+          - "MPOL_PREFERRED_MANY"
+          - "MPOL_LOCAL"
+      - name: "MemoryPolicyFlag"
+        values:
+          - "MPOL_F_NUMA_BALANCING"
+          - "MPOL_F_RELATIVE_NODES"
+          - "MPOL_F_STATIC_NODES"
+
+    personality:
+      - name: "PersonalityDomain"
+        values:
+          - "LINUX"
+          - "LINUX32"
+
+    image:
+      - name: "RootfsType"
+        schema: "OciImageConfig.rootfs.type"
+        values:
+          - "layers"
+
+    lifecycle-hooks:
+      - name: "HookType"
+        schema: "OciRuntimeConfig.hooks"
+        values:
+          - "prestart"
+          - "createRuntime"
+          - "createContainer"
+          - "startContainer"
+          - "poststart"
+          - "poststop"
+
+  authentication:
+    note: >-
+      youki has no network authentication surface — it runs as a local OCI
+      runtime invoked by a parent process (containerd, Podman, Docker, a
+      shell). Privilege boundaries that matter operationally:
+    schemes:
+      - name: "host-root"
+        description: "Runtime invoked as root on the host; needed for cgroups v1 management, full seccomp, full namespaces."
+        appliesTo:
+          - "youki:youki"
+      - name: "rootless"
+        description: "Runtime invoked as an unprivileged user using user namespaces and cgroups v2; reduced capability set."
+        appliesTo:
+          - "youki:youki"
+      - name: "systemd-cgroup"
+        description: "Cgroups managed via systemd (system or user instance); selected with --systemd-cgroup."
+        appliesTo:
+          - "youki:youki"
+
+# CAPABILITY DIMENSION
+# Composed from apis.yml use cases, integrations, and solutions, plus the
+# personas implied by youki's CNCF deployment surface.
+capability:
+
+  workflows:
+    - name: "Drop-In runc Replacement"
+      id: "drop-in-runc"
+      description: >-
+        Configure a container engine (Docker, Podman, containerd) to invoke
+        youki in place of runc and run existing OCI workloads unchanged.
+      apisCombined:
+        - "youki:youki"
+      tools:
+        - "youki run"
+        - "youki create"
+        - "youki start"
+        - "youki delete"
+        - "youki state"
+      personas:
+        - "platform-engineer"
+        - "devops"
+      domains:
+        - "container-runtime"
+    - name: "Rootless Container Workflows"
+      id: "rootless-containers"
+      description: >-
+        Generate a rootless config.json with `youki spec --rootless` and
+        run containers as a non-root user using user namespaces and
+        cgroups v2.
+      apisCombined:
+        - "youki:youki"
+      tools:
+        - "youki spec --rootless"
+        - "youki run"
+        - "youki state"
+        - "youki delete"
+      personas:
+        - "developer"
+        - "ci-engineer"
+        - "security-engineer"
+      domains:
+        - "container-runtime"
+        - "security"
+    - name: "Kubernetes Workloads via containerd"
+      id: "kubernetes-via-containerd"
+      description: >-
+        Run Kubernetes pods on top of youki by configuring containerd to
+        use youki as its OCI runtime; orchestration creates bundles and
+        invokes youki for each pod sandbox / container.
+      apisCombined:
+        - "youki:youki"
+      tools:
+        - "youki create"
+        - "youki start"
+        - "youki kill"
+        - "youki delete"
+        - "youki state"
+        - "youki update"
+      personas:
+        - "platform-engineer"
+        - "kubernetes-operator"
+      domains:
+        - "container-runtime"
+        - "kubernetes"
+    - name: "Podman and Docker Container Execution"
+      id: "podman-docker-execution"
+      description: >-
+        Configure Podman or Docker to invoke youki as the low-level OCI
+        runtime; daemon.json or `--runtime` flag points at the youki
+        binary.
+      apisCombined:
+        - "youki:youki"
+      tools:
+        - "youki run"
+        - "youki create"
+        - "youki start"
+        - "youki exec"
+        - "youki delete"
+      personas:
+        - "developer"
+        - "platform-engineer"
+      domains:
+        - "container-runtime"
+    - name: "Container Runtime Research and Education"
+      id: "runtime-research"
+      description: >-
+        Use the youki + oci-spec-rs codebase as a memory-safe, readable
+        reference implementation for systems research, security analysis,
+        and teaching.
+      apisCombined:
+        - "youki:youki"
+        - "youki:oci-spec-rs"
+      tools:
+        - "libcontainer (Rust)"
+        - "libcgroups (Rust)"
+        - "liboci-cli (Rust)"
+        - "oci-spec (Rust)"
+      personas:
+        - "researcher"
+        - "security-engineer"
+        - "student"
+      domains:
+        - "container-runtime"
+        - "education"
+        - "security"
+    - name: "Cloud Native Container Platforms"
+      id: "cncf-platforms"
+      description: >-
+        Adopt youki as the OCI runtime on a CNCF-aligned platform stack
+        (containerd or CRI-O + Kubernetes + observability) for memory
+        safety and Rust supply-chain benefits.
+      apisCombined:
+        - "youki:youki"
+      tools:
+        - "youki run"
+        - "youki state"
+        - "youki events"
+        - "youki features"
+      personas:
+        - "platform-engineer"
+        - "kubernetes-operator"
+      domains:
+        - "container-runtime"
+        - "cloud-native"
+    - name: "Secure Multi-Tenant Hosts"
+      id: "secure-multi-tenant"
+      description: >-
+        Compose rootless containers, seccomp filtering, capability drops,
+        and Rust memory safety to harden multi-tenant hosts against
+        runtime exploits.
+      apisCombined:
+        - "youki:youki"
+      tools:
+        - "youki run"
+        - "youki spec --rootless"
+        - "youki update"
+        - "youki features"
+      personas:
+        - "security-engineer"
+        - "platform-engineer"
+      domains:
+        - "security"
+        - "container-runtime"
+    - name: "Edge and Embedded Workloads"
+      id: "edge-embedded"
+      description: >-
+        Deploy youki on resource-constrained edge or embedded hardware
+        where its smaller footprint and predictable performance vs. runc
+        matter.
+      apisCombined:
+        - "youki:youki"
+      tools:
+        - "youki run"
+        - "youki state"
+        - "youki delete"
+      personas:
+        - "edge-engineer"
+        - "platform-engineer"
+      domains:
+        - "container-runtime"
+        - "edge"
+    - name: "WebAssembly Workload Execution"
+      id: "webassembly-workloads"
+      description: >-
+        Execute WebAssembly workloads under youki using its Wasm sample
+        integration; bundle a Wasm module with a runtime config and run it
+        as an OCI container.
+      apisCombined:
+        - "youki:youki"
+      tools:
+        - "youki spec"
+        - "youki run"
+        - "youki delete"
+      personas:
+        - "developer"
+        - "researcher"
+      domains:
+        - "container-runtime"
+        - "webassembly"
+    - name: "OCI Spec Tooling in Rust"
+      id: "oci-spec-rust-tooling"
+      description: >-
+        Build Rust container tooling on top of oci-spec-rs — registries,
+        image builders, runtime shims — using the same data structures
+        youki consumes internally.
+      apisCombined:
+        - "youki:oci-spec-rs"
+      tools:
+        - "oci-spec (Rust)"
+      personas:
+        - "developer"
+        - "researcher"
+      domains:
+        - "container-image"
+        - "tooling"
+
+  personas:
+    - id: "platform-engineer"
+      name: "Platform Engineer"
+      description: "Operates the container runtime layer of an internal platform; selects, deploys, and tunes runtimes under containerd or CRI-O."
+      workflows:
+        - "drop-in-runc"
+        - "kubernetes-via-containerd"
+        - "podman-docker-execution"
+        - "cncf-platforms"
+        - "secure-multi-tenant"
+        - "edge-embedded"
+    - id: "kubernetes-operator"
+      name: "Kubernetes Operator"
+      description: "Runs Kubernetes clusters in production and chooses the OCI runtime under containerd / CRI-O."
+      workflows:
+        - "kubernetes-via-containerd"
+        - "cncf-platforms"
+    - id: "devops"
+      name: "DevOps Engineer"
+      description: "Wires container runtimes into CI, deployment, and developer environments."
+      workflows:
+        - "drop-in-runc"
+    - id: "developer"
+      name: "Application Developer"
+      description: "Builds and runs containerized applications locally via Docker, Podman, or directly against youki."
+      workflows:
+        - "rootless-containers"
+        - "podman-docker-execution"
+        - "webassembly-workloads"
+        - "oci-spec-rust-tooling"
+    - id: "ci-engineer"
+      name: "CI Engineer"
+      description: "Runs container workloads in build/test pipelines, often as a non-root user."
+      workflows:
+        - "rootless-containers"
+    - id: "security-engineer"
+      name: "Security Engineer"
+      description: "Hardens container hosts using rootless mode, seccomp, capability drops, and memory-safe runtime code."
+      workflows:
+        - "rootless-containers"
+        - "runtime-research"
+        - "secure-multi-tenant"
+    - id: "researcher"
+      name: "Systems Researcher"
+      description: "Studies or extends a memory-safe reference container runtime for academic or industrial research."
+      workflows:
+        - "runtime-research"
+        - "webassembly-workloads"
+        - "oci-spec-rust-tooling"
+    - id: "student"
+      name: "Student"
+      description: "Learns container runtime internals from a readable Rust codebase."
+      workflows:
+        - "runtime-research"
+    - id: "edge-engineer"
+      name: "Edge Engineer"
+      description: "Deploys containerized workloads on edge or embedded hardware with tight resource budgets."
+      workflows:
+        - "edge-embedded"
+
+  domains:
+    - id: "container-runtime"
+      name: "Container Runtime"
+      description: "Lifecycle of OCI containers — bundles, processes, namespaces, cgroups."
+      resources:
+        - "container"
+        - "bundle"
+        - "process"
+        - "events"
+        - "features"
+        - "checkpoint"
+        - "hook"
+    - id: "security"
+      name: "Security"
+      description: "Isolation and hardening primitives applied to containers."
+      resources:
+        - "seccomp-profile"
+        - "capability"
+        - "namespace"
+    - id: "kubernetes"
+      name: "Kubernetes"
+      description: "Pod and workload execution under Kubernetes-orchestrated container runtimes."
+      resources:
+        - "container"
+        - "cgroup"
+    - id: "cloud-native"
+      name: "Cloud Native"
+      description: "CNCF-aligned platform stacks built around youki."
+      resources:
+        - "container"
+        - "events"
+        - "features"
+    - id: "edge"
+      name: "Edge"
+      description: "Resource-constrained deployments where runtime footprint matters."
+      resources:
+        - "container"
+    - id: "webassembly"
+      name: "WebAssembly"
+      description: "Wasm modules executed inside OCI containers under youki."
+      resources:
+        - "bundle"
+        - "container"
+    - id: "container-image"
+      name: "Container Image"
+      description: "OCI image manifest, index, config, and layout artifacts."
+      resources:
+        - "image"
+        - "image-index"
+        - "image-layout"
+        - "descriptor"
+    - id: "education"
+      name: "Education"
+      description: "Teaching and learning use of the youki codebase."
+      resources:
+        - "container"
+    - id: "tooling"
+      name: "Tooling"
+      description: "Rust libraries that build on oci-spec-rs."
+      resources:
+        - "image"
+        - "image-index"
+        - "descriptor"
+
+  namespaces:
+    consumed:
+      - id: "oci-runtime-spec"
+        description: "OCI Runtime Specification — the source of truth for config.json, state.json, and features.json."
+        upstream: "https://github.com/opencontainers/runtime-spec"
+      - id: "oci-image-spec"
+        description: "OCI Image Specification — manifest, index, config, layout."
+        upstream: "https://github.com/opencontainers/image-spec"
+      - id: "oci-distribution-spec"
+        description: "OCI Distribution Specification (modeled in oci-spec-rs)."
+        upstream: "https://github.com/opencontainers/distribution-spec"
+      - id: "linux-syscalls"
+        description: "Linux kernel syscalls, namespaces, cgroups, seccomp, capabilities."
+      - id: "criu"
+        description: "Checkpoint/Restore In Userspace, used by `youki checkpoint`."
+        upstream: "https://github.com/checkpoint-restore/criu"
+      - id: "systemd"
+        description: "systemd cgroup manager and unit-based container lifecycles."
+    cliExposed:
+      - id: "youki"
+        binary: "youki"
+        description: "OCI CLI surface implemented via liboci-cli, compatible with runc subcommands."
+    sdkExposed:
+      - id: "libcontainer"
+        crate: "libcontainer"
+        description: "Container lifecycle primitives in Rust."
+      - id: "libcgroups"
+        crate: "libcgroups"
+        description: "Cgroups v1/v2/systemd abstraction in Rust."
+      - id: "liboci-cli"
+        crate: "liboci-cli"
+        description: "Reusable OCI CLI argument parsing in Rust."
+      - id: "oci-spec"
+        crate: "oci-spec"
+        description: "Rust types for OCI Runtime, Image, and Distribution specs."
+
+  binds:
+    - name: "XDG_RUNTIME_DIR"
+      description: "Per-user runtime directory used by rootless containers for cgroup and state paths."
+      requiredBy:
+        - "rootless-containers"
+        - "secure-multi-tenant"
+    - name: "DBUS_SESSION_BUS_ADDRESS"
+      description: "User D-Bus session address used when running with --systemd-cgroup as a regular user."
+      requiredBy:
+        - "rootless-containers"
+    - name: "PATH"
+      description: "Must include `youki` for engines (Docker/Podman) configured to invoke it by name."
+      requiredBy:
+        - "drop-in-runc"
+        - "podman-docker-execution"
+    - name: "RUST_LOG"
+      description: "Optional log filter honored when youki is built with logging features."
+      requiredBy:
+        - "runtime-research"
+
+# CROSS-REFERENCE
+# Maps each operational resource to its CLI/SDK operations, the schemas
+# that describe it, and the capability workflows / personas that use it.
+crossReference:
+
+  - resource: "container"
+    api: "youki:youki"
+    operations:
+      - "create"
+      - "run"
+      - "start"
+      - "exec"
+      - "kill"
+      - "pause"
+      - "resume"
+      - "delete"
+      - "list"
+      - "state"
+      - "update"
+      - "checkpoint"
+    schemas:
+      - "OciRuntimeConfig"
+      - "OciRuntimeState"
+    workflows:
+      - "drop-in-runc"
+      - "rootless-containers"
+      - "kubernetes-via-containerd"
+      - "podman-docker-execution"
+      - "secure-multi-tenant"
+      - "edge-embedded"
+      - "cncf-platforms"
+      - "webassembly-workloads"
+    personas:
+      - "platform-engineer"
+      - "kubernetes-operator"
+      - "developer"
+      - "ci-engineer"
+
+  - resource: "bundle"
+    api: "youki:youki"
+    operations:
+      - "spec"
+      - "create"
+      - "run"
+    schemas:
+      - "OciRuntimeConfig"
+    workflows:
+      - "rootless-containers"
+      - "drop-in-runc"
+      - "webassembly-workloads"
+    personas:
+      - "developer"
+      - "platform-engineer"
+
+  - resource: "process"
+    api: "youki:youki"
+    operations:
+      - "exec"
+      - "ps"
+      - "kill"
+    schemas:
+      - "OciRuntimeConfig"
+    workflows:
+      - "podman-docker-execution"
+      - "kubernetes-via-containerd"
+    personas:
+      - "developer"
+      - "platform-engineer"
+
+  - resource: "events"
+    api: "youki:youki"
+    operations:
+      - "events"
+    workflows:
+      - "cncf-platforms"
+      - "kubernetes-via-containerd"
+    personas:
+      - "platform-engineer"
+      - "kubernetes-operator"
+
+  - resource: "features"
+    api: "youki:youki"
+    operations:
+      - "features"
+    schemas:
+      - "OciRuntimeFeatures"
+      - "LinuxFeatures"
+    workflows:
+      - "cncf-platforms"
+      - "secure-multi-tenant"
+    personas:
+      - "platform-engineer"
+      - "security-engineer"
+
+  - resource: "checkpoint"
+    api: "youki:youki"
+    operations:
+      - "checkpoint"
+    workflows:
+      - "kubernetes-via-containerd"
+      - "runtime-research"
+    personas:
+      - "platform-engineer"
+      - "researcher"
+
+  - resource: "cgroup"
+    api: "youki:youki"
+    operations:
+      - "update"
+      - "create"
+    schemas:
+      - "LinuxConfig"
+    workflows:
+      - "kubernetes-via-containerd"
+      - "secure-multi-tenant"
+      - "rootless-containers"
+    personas:
+      - "platform-engineer"
+      - "security-engineer"
+
+  - resource: "namespace"
+    api: "youki:youki"
+    operations:
+      - "create"
+    schemas:
+      - "LinuxConfig"
+    workflows:
+      - "rootless-containers"
+      - "secure-multi-tenant"
+    personas:
+      - "security-engineer"
+      - "platform-engineer"
+
+  - resource: "seccomp-profile"
+    api: "youki:youki"
+    operations:
+      - "create"
+    schemas:
+      - "LinuxConfig"
+    workflows:
+      - "secure-multi-tenant"
+      - "runtime-research"
+    personas:
+      - "security-engineer"
+      - "researcher"
+
+  - resource: "capability"
+    api: "youki:youki"
+    schemas:
+      - "OciRuntimeConfig"
+    workflows:
+      - "secure-multi-tenant"
+      - "rootless-containers"
+    personas:
+      - "security-engineer"
+      - "platform-engineer"
+
+  - resource: "mount"
+    api: "youki:youki"
+    schemas:
+      - "OciRuntimeConfig"
+      - "Mount"
+    workflows:
+      - "drop-in-runc"
+      - "rootless-containers"
+      - "kubernetes-via-containerd"
+    personas:
+      - "developer"
+      - "platform-engineer"
+
+  - resource: "hook"
+    api: "youki:youki"
+    schemas:
+      - "OciRuntimeConfig"
+      - "Hook"
+    workflows:
+      - "kubernetes-via-containerd"
+      - "podman-docker-execution"
+    personas:
+      - "platform-engineer"
+
+  - resource: "image"
+    api: "youki:oci-spec-rs"
+    schemas:
+      - "OciImageManifest"
+      - "OciImageConfig"
+      - "OciImageContentDescriptor"
+    workflows:
+      - "oci-spec-rust-tooling"
+      - "runtime-research"
+    personas:
+      - "developer"
+      - "researcher"
+
+  - resource: "image-index"
+    api: "youki:oci-spec-rs"
+    schemas:
+      - "OciImageIndex"
+    workflows:
+      - "oci-spec-rust-tooling"
+    personas:
+      - "developer"
+      - "researcher"
+
+  - resource: "image-layout"
+    api: "youki:oci-spec-rs"
+    schemas:
+      - "OciImageLayout"
+    workflows:
+      - "oci-spec-rust-tooling"
+    personas:
+      - "developer"
+
+  - resource: "descriptor"
+    api: "youki:oci-spec-rs"
+    schemas:
+      - "OciImageContentDescriptor"
+    workflows:
+      - "oci-spec-rust-tooling"
+    personas:
+      - "developer"
+      - "researcher"

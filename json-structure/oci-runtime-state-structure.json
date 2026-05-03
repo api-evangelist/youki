@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/youki/refs/heads/main/json-structure/oci-runtime-state-structure.json",
+  "name": "OciRuntimeState",
+  "description": "Open Container Runtime State Schema",
+  "type": "object",
+  "properties": {
+    "ociVersion": {
+      "$ref": "defs.json#/definitions/ociVersion"
+    },
+    "id": {
+      "description": "the container's ID",
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "creating",
+        "created",
+        "running",
+        "stopped"
+      ]
+    },
+    "pid": {
+      "type": "int32",
+      "minimum": 0
+    },
+    "bundle": {
+      "type": "string"
+    },
+    "annotations": {
+      "$ref": "defs.json#/definitions/annotations"
+    }
+  },
+  "required": [
+    "ociVersion",
+    "id",
+    "status",
+    "bundle"
+  ]
+}

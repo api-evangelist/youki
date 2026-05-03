@@ -1,0 +1,161 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "oci": "https://opencontainers.org/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "MapStringObject": "oci:MapStringObject",
+    "MapStringString": "oci:MapStringString",
+    "OciImageConfig": "oci:OciImageConfig",
+    "OciImageContentDescriptor": "oci:OciImageContentDescriptor",
+    "OciImageIndex": "oci:OciImageIndex",
+    "OciImageLayout": "oci:OciImageLayout",
+    "OciImageManifest": "oci:OciImageManifest",
+    "ArgsEscaped": {
+      "@id": "oci:args_escaped",
+      "@type": "xsd:boolean"
+    },
+    "Cmd": {
+      "@id": "oci:cmd"
+    },
+    "Entrypoint": {
+      "@id": "oci:entrypoint"
+    },
+    "Env": {
+      "@id": "oci:env",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "ExposedPorts": {
+      "@id": "oci:exposed_ports"
+    },
+    "Labels": {
+      "@id": "oci:labels"
+    },
+    "StopSignal": {
+      "@id": "oci:stop_signal",
+      "@type": "xsd:string"
+    },
+    "User": {
+      "@id": "oci:user",
+      "@type": "xsd:string"
+    },
+    "Volumes": {
+      "@id": "oci:volumes"
+    },
+    "WorkingDir": {
+      "@id": "oci:working_dir",
+      "@type": "xsd:string"
+    },
+    "annotations": {
+      "@id": "oci:annotations"
+    },
+    "architecture": {
+      "@id": "oci:architecture",
+      "@type": "xsd:string"
+    },
+    "artifactType": {
+      "@id": "oci:artifact_type"
+    },
+    "author": {
+      "@id": "schema:author",
+      "@type": "xsd:string"
+    },
+    "comment": {
+      "@id": "oci:comment",
+      "@type": "xsd:string"
+    },
+    "config": {
+      "@id": "oci:config",
+      "@type": "@id"
+    },
+    "created": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "createdBy": {
+      "@id": "oci:created_by",
+      "@type": "xsd:string"
+    },
+    "data": {
+      "@id": "oci:data"
+    },
+    "diffIds": {
+      "@id": "oci:diff_ids",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "digest": {
+      "@id": "oci:digest"
+    },
+    "emptyLayer": {
+      "@id": "oci:empty_layer",
+      "@type": "xsd:boolean"
+    },
+    "history": {
+      "@id": "oci:history",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "imageLayoutVersion": {
+      "@id": "oci:image_layout_version",
+      "@type": "xsd:string"
+    },
+    "layers": {
+      "@id": "oci:layers",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "manifests": {
+      "@id": "oci:manifests",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "mediaType": {
+      "@id": "oci:media_type"
+    },
+    "os": {
+      "@id": "oci:os",
+      "@type": "xsd:string"
+    },
+    "osFeatures": {
+      "@id": "oci:os_features",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "osVersion": {
+      "@id": "oci:os_version",
+      "@type": "xsd:string"
+    },
+    "platform": {
+      "@id": "oci:platform",
+      "@type": "@id"
+    },
+    "rootfs": {
+      "@id": "oci:rootfs",
+      "@type": "@id"
+    },
+    "schemaVersion": {
+      "@id": "oci:schema_version",
+      "@type": "xsd:integer"
+    },
+    "size": {
+      "@id": "oci:size"
+    },
+    "subject": {
+      "@id": "oci:subject"
+    },
+    "type": {
+      "@id": "oci:type",
+      "@type": "xsd:string"
+    },
+    "urls": {
+      "@id": "oci:urls"
+    },
+    "variant": {
+      "@id": "oci:variant",
+      "@type": "xsd:string"
+    }
+  }
+}

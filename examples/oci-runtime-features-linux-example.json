@@ -1,0 +1,56 @@
+{
+  "linux": {
+    "namespaces": [
+      "user",
+      "time"
+    ],
+    "capabilities": [
+      "example-a9d6",
+      "example-ba6d"
+    ],
+    "cgroup": {
+      "v1": false,
+      "v2": false,
+      "systemd": true,
+      "systemdUser": false,
+      "rdma": false
+    },
+    "seccomp": {
+      "enabled": true,
+      "actions": [
+        "SCMP_ACT_NOTIFY",
+        "SCMP_ACT_KILL_PROCESS"
+      ],
+      "operators": [
+        "SCMP_CMP_MASKED_EQ",
+        "SCMP_CMP_LT"
+      ],
+      "archs": [
+        "SCMP_ARCH_M68K",
+        "SCMP_ARCH_SH"
+      ],
+      "knownFlags": [
+        "SECCOMP_FILTER_FLAG_TSYNC",
+        "SECCOMP_FILTER_FLAG_LOG"
+      ],
+      "supportedFlags": [
+        "SECCOMP_FILTER_FLAG_SPEC_ALLOW",
+        "SECCOMP_FILTER_FLAG_LOG"
+      ]
+    },
+    "apparmor": {
+      "enabled": false
+    },
+    "intelRdt": {
+      "enabled": true
+    },
+    "mountExtensions": {
+      "idmap": {
+        "enabled": true
+      }
+    },
+    "netDevices": {
+      "enabled": false
+    }
+  }
+}

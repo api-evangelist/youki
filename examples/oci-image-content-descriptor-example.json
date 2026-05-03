@@ -1,0 +1,14 @@
+{
+  "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+  "size": 417085,
+  "digest": "sha256:74e5e238463da70d8c0ee0673161d0dd8c071ac255e410c865bbc9b298e3d512",
+  "urls": [
+    "https://example.com/path/e16490f6",
+    "https://example.com/path/e09e0702"
+  ],
+  "data": "example-d507",
+  "artifactType": "application/vnd.oci.image.manifest.v1+json",
+  "annotations": {
+    "label-38e8": "example-a7a1"
+  }
+}

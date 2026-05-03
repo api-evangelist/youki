@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/youki/refs/heads/main/json-structure/oci-image-layout-structure.json",
+  "name": "OciImageLayout",
+  "description": "OpenContainer Image Layout Schema",
+  "type": "object",
+  "id": "https://opencontainers.org/schema/image/layout",
+  "properties": {
+    "imageLayoutVersion": {
+      "description": "version of the OCI Image Layout (in the oci-layout file)",
+      "type": "string",
+      "enum": [
+        "1.0.0"
+      ]
+    }
+  },
+  "required": [
+    "imageLayoutVersion"
+  ]
+}

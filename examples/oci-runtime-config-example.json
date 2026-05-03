@@ -1,0 +1,762 @@
+{
+  "ociVersion": "1.0.2",
+  "hooks": {
+    "prestart": [
+      {
+        "path": "/etc/config",
+        "args": [
+          "sh",
+          "-c",
+          "echo hello"
+        ],
+        "env": [
+          "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "TERM=xterm"
+        ],
+        "timeout": 461
+      },
+      {
+        "path": "/",
+        "args": [
+          "sh",
+          "-c",
+          "echo hello"
+        ],
+        "env": [
+          "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "TERM=xterm"
+        ],
+        "timeout": 510
+      }
+    ],
+    "createRuntime": [
+      {
+        "path": "/",
+        "args": [
+          "sh",
+          "-c",
+          "echo hello"
+        ],
+        "env": [
+          "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "TERM=xterm"
+        ],
+        "timeout": 985
+      },
+      {
+        "path": "/",
+        "env": [
+          "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "TERM=xterm"
+        ],
+        "timeout": 71
+      }
+    ],
+    "createContainer": [
+      {
+        "path": "/var/log",
+        "args": [
+          "sh",
+          "-c",
+          "echo hello"
+        ],
+        "env": [
+          "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "TERM=xterm"
+        ],
+        "timeout": 454
+      },
+      {
+        "path": "/",
+        "args": [
+          "sh",
+          "-c",
+          "echo hello"
+        ],
+        "env": [
+          "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "TERM=xterm"
+        ],
+        "timeout": 918
+      }
+    ],
+    "startContainer": [
+      {
+        "path": "/usr/local/bin",
+        "args": [
+          "sh",
+          "-c",
+          "echo hello"
+        ],
+        "env": [
+          "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "TERM=xterm"
+        ],
+        "timeout": 556
+      },
+      {
+        "path": "/usr/local/bin",
+        "args": [
+          "sh",
+          "-c",
+          "echo hello"
+        ],
+        "env": [
+          "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "TERM=xterm"
+        ],
+        "timeout": 369
+      }
+    ],
+    "poststart": [
+      {
+        "path": "/",
+        "args": [
+          "sh",
+          "-c",
+          "echo hello"
+        ],
+        "env": [
+          "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "TERM=xterm"
+        ]
+      },
+      {
+        "path": "/usr/local/bin",
+        "args": [
+          "sh",
+          "-c",
+          "echo hello"
+        ],
+        "env": [
+          "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "TERM=xterm"
+        ],
+        "timeout": 637
+      }
+    ],
+    "poststop": [
+      {
+        "path": "/usr/local/bin",
+        "args": [
+          "sh",
+          "-c",
+          "echo hello"
+        ],
+        "env": [
+          "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "TERM=xterm"
+        ],
+        "timeout": 27
+      },
+      {
+        "path": "/usr/local/bin",
+        "args": [
+          "sh",
+          "-c",
+          "echo hello"
+        ],
+        "env": [
+          "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "TERM=xterm"
+        ],
+        "timeout": 214
+      }
+    ]
+  },
+  "annotations": {
+    "label-6292": "example-340d"
+  },
+  "hostname": "container-ffb67252",
+  "domainname": "example.local",
+  "mounts": [
+    {
+      "source": "/tmp",
+      "destination": "/usr/local/bin",
+      "options": [
+        "example-b283",
+        "example-38b9"
+      ],
+      "type": "example-8ff5",
+      "uidMappings": [
+        {
+          "containerID": 749,
+          "hostID": 625,
+          "size": 110244
+        },
+        {
+          "containerID": 75,
+          "hostID": 897,
+          "size": 646482
+        }
+      ]
+    },
+    {
+      "source": "/tmp",
+      "destination": "/var/log",
+      "options": [
+        "example-432a",
+        "example-a25c"
+      ],
+      "type": "example-91fc",
+      "uidMappings": [
+        {
+          "containerID": 848,
+          "hostID": 592,
+          "size": 200245
+        },
+        {
+          "containerID": 20,
+          "hostID": 499,
+          "size": 276296
+        }
+      ],
+      "gidMappings": [
+        {
+          "containerID": 401,
+          "hostID": 352,
+          "size": 625334
+        },
+        {
+          "containerID": 589,
+          "hostID": 406,
+          "size": 289481
+        }
+      ]
+    }
+  ],
+  "root": {
+    "path": "/",
+    "readonly": true
+  },
+  "process": {
+    "args": [
+      "sh",
+      "-c",
+      "echo hello"
+    ],
+    "commandLine": "example-1f46",
+    "consoleSize": {
+      "height": 186,
+      "width": 54
+    },
+    "cwd": "/usr/local/bin",
+    "env": [
+      "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "TERM=xterm"
+    ],
+    "terminal": true,
+    "user": {
+      "uid": 0,
+      "gid": 61152,
+      "umask": 27,
+      "additionalGids": [
+        981,
+        251
+      ],
+      "username": "root"
+    },
+    "capabilities": {
+      "bounding": [
+        "CAP_KILL",
+        "CAP_DAC_OVERRIDE"
+      ],
+      "permitted": [
+        "CAP_DAC_OVERRIDE",
+        "CAP_AUDIT_WRITE"
+      ],
+      "effective": [
+        "CAP_SETGID",
+        "CAP_NET_RAW"
+      ],
+      "inheritable": [
+        "CAP_AUDIT_WRITE",
+        "CAP_NET_BIND_SERVICE"
+      ],
+      "ambient": [
+        "CAP_SETUID",
+        "CAP_SETPCAP"
+      ]
+    },
+    "oomScoreAdj": 805,
+    "selinuxLabel": "system_u:system_r:container_t:s0",
+    "ioPriority": {
+      "class": "IOPRIO_CLASS_BE",
+      "priority": 778
+    },
+    "noNewPrivileges": true,
+    "scheduler": {
+      "policy": "SCHED_DEADLINE",
+      "nice": 295,
+      "priority": 795,
+      "flags": [
+        "SCHED_FLAG_KEEP_POLICY",
+        "SCHED_FLAG_UTIL_CLAMP_MAX"
+      ],
+      "runtime": 143,
+      "deadline": 671,
+      "period": 721
+    },
+    "execCPUAffinity": {
+      "initial": "4-13"
+    }
+  },
+  "linux": {
+    "devices": [
+      {
+        "type": "example-97be",
+        "path": "/usr/local/bin",
+        "fileMode": 164,
+        "major": 546,
+        "minor": 578,
+        "uid": 0,
+        "gid": 12266
+      },
+      {
+        "type": "example-faca",
+        "path": "/var/log",
+        "fileMode": 293,
+        "major": 987,
+        "minor": 391,
+        "uid": 48486,
+        "gid": 0
+      }
+    ],
+    "netDevices": {
+      "key-8158": {
+        "name": "example-67b4"
+      }
+    },
+    "uidMappings": [
+      {
+        "containerID": 249,
+        "hostID": 983,
+        "size": 452042
+      },
+      {
+        "containerID": 550,
+        "hostID": 418,
+        "size": 11031
+      }
+    ],
+    "gidMappings": [
+      {
+        "containerID": 870,
+        "hostID": 212,
+        "size": 17933
+      },
+      {
+        "containerID": 692,
+        "hostID": 637,
+        "size": 1036284
+      }
+    ],
+    "namespaces": [
+      {
+        "type": "pid",
+        "path": "/etc/config"
+      },
+      {
+        "type": "ipc",
+        "path": "/etc/config"
+      }
+    ],
+    "resources": {
+      "unified": {
+        "label-0e69": "example-1a65"
+      },
+      "devices": [
+        {
+          "allow": false,
+          "type": "example-37e1",
+          "major": 377,
+          "minor": 954,
+          "access": "example-544a"
+        },
+        {
+          "allow": true,
+          "type": "example-f99b",
+          "major": 931,
+          "minor": 126,
+          "access": "example-615b"
+        }
+      ],
+      "pids": {
+        "limit": 252
+      },
+      "blockIO": {
+        "weight": 838,
+        "leafWeight": 56,
+        "throttleReadBpsDevice": [
+          {
+            "major": 849,
+            "minor": 332
+          },
+          {
+            "major": 77,
+            "minor": 665
+          }
+        ],
+        "throttleWriteBpsDevice": [
+          {
+            "major": 512,
+            "minor": 216
+          },
+          {
+            "major": 649,
+            "minor": 632
+          }
+        ],
+        "throttleReadIOPSDevice": [
+          {
+            "major": 311,
+            "minor": 104
+          },
+          {
+            "major": 73,
+            "minor": 728
+          }
+        ],
+        "throttleWriteIOPSDevice": [
+          {
+            "major": 205,
+            "minor": 795
+          },
+          {
+            "major": 284,
+            "minor": 327
+          }
+        ],
+        "weightDevice": [
+          {
+            "major": 11,
+            "minor": 622
+          },
+          {
+            "major": 173,
+            "minor": 198
+          }
+        ]
+      },
+      "cpu": {
+        "cpus": "example-86cb",
+        "mems": "example-041b",
+        "period": 111,
+        "quota": 491,
+        "burst": 579,
+        "realtimePeriod": 162,
+        "realtimeRuntime": 420,
+        "shares": 185,
+        "idle": 896
+      },
+      "hugepageLimits": [
+        {
+          "pageSize": "example-7eea",
+          "limit": 383
+        },
+        {
+          "pageSize": "example-1e9e",
+          "limit": 794
+        }
+      ],
+      "memory": {
+        "kernelTCP": 162,
+        "limit": 934,
+        "reservation": 816,
+        "swap": 0,
+        "swappiness": 836,
+        "disableOOMKiller": false,
+        "useHierarchy": false,
+        "checkBeforeUpdate": true
+      },
+      "network": {
+        "classID": 618,
+        "priorities": [
+          {
+            "name": "example-7201",
+            "priority": 932
+          },
+          {
+            "name": "example-8b14",
+            "priority": 709
+          }
+        ]
+      },
+      "rdma": {
+        "key-b878": {
+          "hcaHandles": 474,
+          "hcaObjects": 853
+        }
+      }
+    },
+    "cgroupsPath": "example-33d3",
+    "rootfsPropagation": "slave",
+    "seccomp": {
+      "defaultAction": "SCMP_ACT_ALLOW",
+      "defaultErrnoRet": 551,
+      "flags": [
+        "SECCOMP_FILTER_FLAG_LOG",
+        "SECCOMP_FILTER_FLAG_SPEC_ALLOW"
+      ],
+      "listenerPath": "example-5b88",
+      "listenerMetadata": "example-88d2",
+      "architectures": [
+        "SCMP_ARCH_MIPSEL64",
+        "SCMP_ARCH_ARM"
+      ],
+      "syscalls": [
+        {
+          "names": [
+            "example-b758",
+            "example-b1c6"
+          ],
+          "action": "SCMP_ACT_NOTIFY",
+          "errnoRet": 110,
+          "args": [
+            "sh",
+            "-c",
+            "echo hello"
+          ]
+        },
+        {
+          "names": [
+            "example-d96c",
+            "example-95c0"
+          ],
+          "action": "SCMP_ACT_ALLOW",
+          "errnoRet": 195,
+          "args": [
+            "sh",
+            "-c",
+            "echo hello"
+          ]
+        }
+      ]
+    },
+    "sysctl": {
+      "label-1ba3": "example-acbc"
+    },
+    "maskedPaths": [
+      "example-325a",
+      "example-e7d1"
+    ],
+    "readonlyPaths": [
+      "example-92b8",
+      "example-3a9a"
+    ],
+    "mountLabel": "example-6929",
+    "intelRdt": {
+      "closID": "b297b2f3feaa",
+      "schemata": [
+        "example-69fd",
+        "example-3a7c"
+      ],
+      "l3CacheSchema": "example-c8d9",
+      "memBwSchema": "example-2820",
+      "enableMonitoring": false
+    },
+    "memoryPolicy": {
+      "mode": "MPOL_LOCAL"
+    },
+    "personality": {
+      "domain": "LINUX"
+    },
+    "timeOffsets": {
+      "boottime": {
+        "secs": 254,
+        "nanosecs": 703
+      },
+      "monotonic": {
+        "secs": 505,
+        "nanosecs": 145
+      }
+    }
+  },
+  "solaris": {
+    "milestone": "example-b3fa",
+    "limitpriv": "example-1123",
+    "maxShmMemory": "example-fdc2",
+    "cappedCPU": {
+      "ncpus": "example-d2e6"
+    },
+    "cappedMemory": {
+      "physical": "example-53a5",
+      "swap": "example-42bc"
+    },
+    "anet": [
+      {
+        "linkname": "example-bdec",
+        "lowerLink": "https://example.com/oci/blobs/sha256/116747da956e",
+        "allowedAddress": "example-f14c",
+        "configureAllowedAddress": "example-1968",
+        "defrouter": "example-c863",
+        "macAddress": "example-5a5a",
+        "linkProtection": "example-745f"
+      },
+      {
+        "linkname": "example-2103",
+        "lowerLink": "https://example.com/oci/blobs/sha256/6df16cec683b",
+        "allowedAddress": "example-febc",
+        "configureAllowedAddress": "example-2f94",
+        "defrouter": "example-d50a",
+        "macAddress": "example-77bc",
+        "linkProtection": "example-e7ab"
+      }
+    ]
+  },
+  "windows": {
+    "layerFolders": [
+      "example-f5aa",
+      "example-325e"
+    ],
+    "devices": [
+      {
+        "id": "example-ebdb",
+        "idType": "class"
+      },
+      {
+        "id": "example-fba4",
+        "idType": "class"
+      }
+    ],
+    "resources": {
+      "memory": {
+        "limit": 585
+      },
+      "cpu": {
+        "count": 799,
+        "shares": 63,
+        "maximum": 642,
+        "affinity": {
+          "mask": 164,
+          "group": 721
+        }
+      },
+      "storage": {
+        "iops": 955,
+        "bps": 301,
+        "sandboxSize": 529
+      }
+    },
+    "network": {
+      "endpointList": [
+        "example-990e",
+        "example-3fd3"
+      ],
+      "allowUnqualifiedDNSQuery": false,
+      "networkSharedContainerName": "example-dd01",
+      "networkNamespace": "example-af30"
+    },
+    "credentialSpec": {},
+    "servicing": false,
+    "ignoreFlushesDuringBoot": true,
+    "hyperv": {
+      "utilityVMPath": "example-301c"
+    }
+  },
+  "vm": {
+    "hypervisor": {
+      "path": "/var/log",
+      "parameters": [
+        "example-dd05",
+        "example-26f3"
+      ]
+    },
+    "kernel": {
+      "path": "/usr/local/bin",
+      "parameters": [
+        "example-c9e4",
+        "example-91fa"
+      ],
+      "initrd": "example-e9b8"
+    },
+    "image": {
+      "path": "/",
+      "format": "qcow2"
+    },
+    "hwConfig": {
+      "deviceTree": "example-6cf0",
+      "memory": 958,
+      "dtdevs": [
+        "example-4d5d",
+        "example-55a9"
+      ],
+      "iomems": [
+        {
+          "firstGFN": 254,
+          "firstMFN": 207,
+          "nrMFNs": 890
+        },
+        {
+          "firstGFN": 68,
+          "firstMFN": 870,
+          "nrMFNs": 409
+        }
+      ],
+      "irqs": [
+        497,
+        689
+      ]
+    }
+  },
+  "zos": {
+    "namespaces": [
+      {
+        "type": "ipc",
+        "path": "/var/log"
+      },
+      {
+        "type": "uts",
+        "path": "/etc/config"
+      }
+    ]
+  },
+  "freebsd": {
+    "devices": [
+      {
+        "path": "/usr/local/bin",
+        "mode": 398
+      },
+      {
+        "path": "/var/log",
+        "mode": 78
+      }
+    ],
+    "jail": {
+      "parent": "example-ee3f",
+      "host": "inherit",
+      "ip4": "inherit",
+      "ip4Addr": [
+        "example-353e",
+        "example-394e"
+      ],
+      "ip6": "disable",
+      "ip6Addr": [
+        "example-1620",
+        "example-4d19"
+      ],
+      "vnet": "new",
+      "interface": "example-ecda",
+      "vnetInterfaces": [
+        "example-c7fe",
+        "example-3db5"
+      ],
+      "sysvmsg": "new",
+      "sysvsem": "inherit",
+      "sysvshm": "disable",
+      "enforceStatfs": 21,
+      "allow": {
+        "setHostname": true,
+        "rawSockets": false,
+        "chflags": true,
+        "mount": [
+          "example-2563",
+          "example-17d5"
+        ],
+        "quotas": true,
+        "socketAf": true,
+        "reservedPorts": false
+      }
+    }
+  }
+}

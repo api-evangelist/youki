@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/youki/refs/heads/main/json-structure/oci-image-defs-structure.json",
+  "name": "OciImageDefs",
+  "description": "Definitions used throughout the OpenContainer Specification",
+  "definitions": {
+    "int8": {
+      "name": "int8",
+      "type": "int32",
+      "minimum": -128,
+      "maximum": 127
+    },
+    "int16": {
+      "name": "int16",
+      "type": "int32",
+      "minimum": -32768,
+      "maximum": 32767
+    },
+    "int32": {
+      "name": "int32",
+      "type": "int32",
+      "minimum": -2147483648,
+      "maximum": 2147483647
+    },
+    "int64": {
+      "name": "int64",
+      "type": "int32",
+      "minimum": -9223372036854776000,
+      "maximum": 9223372036854776000
+    },
+    "uint8": {
+      "name": "uint8",
+      "type": "int32",
+      "minimum": 0,
+      "maximum": 255
+    },
+    "uint16": {
+      "name": "uint16",
+      "type": "int32",
+      "minimum": 0,
+      "maximum": 65535
+    },
+    "uint32": {
+      "name": "uint32",
+      "type": "int32",
+      "minimum": 0,
+      "maximum": 4294967295
+    },
+    "uint64": {
+      "name": "uint64",
+      "type": "int32",
+      "minimum": 0,
+      "maximum": 18446744073709552000
+    },
+    "uint16Pointer": {
+      "name": "uint16Pointer",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/uint16"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "uint64Pointer": {
+      "name": "uint64Pointer",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/uint64"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "base64": {
+      "name": "base64",
+      "type": "string",
+      "media": {
+        "binaryEncoding": "base64"
+      }
+    },
+    "stringPointer": {
+      "name": "stringPointer",
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "mapStringString": {
+      "name": "mapStringString",
+      "type": "object",
+      "patternProperties": {
+        ".{1,}": {
+          "type": "string"
+        }
+      }
+    },
+    "mapStringObject": {
+      "name": "mapStringObject",
+      "type": "object",
+      "patternProperties": {
+        ".{1,}": {
+          "type": "object"
+        }
+      }
+    }
+  }
+}

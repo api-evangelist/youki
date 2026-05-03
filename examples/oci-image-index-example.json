@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 2,
+  "mediaType": "application/vnd.oci.image.index.v1+json",
+  "artifactType": "application/vnd.oci.image.index.v1+json",
+  "subject": {
+    "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+    "size": 458819,
+    "digest": "sha256:c09637a09246fe46210801dd6ec8370397d6c3330bbdbdc9b178997c5c5a531a",
+    "urls": [
+      "https://example.com/path/3bc5628c",
+      "https://example.com/path/fc52b93e"
+    ],
+    "data": "example-bca8",
+    "artifactType": "application/vnd.oci.image.config.v1+json",
+    "annotations": {
+      "label-8294": "example-d1ae"
+    }
+  },
+  "manifests": [
+    {
+      "mediaType": "application/vnd.oci.image.config.v1+json",
+      "size": 254634,
+      "digest": "sha256:7339cab0e9142ee0f99112487346ab8549e59dd4934e42d72b9344b391950ae3",
+      "urls": [
+        "https://example.com/path/a776e533",
+        "https://example.com/path/366bc722"
+      ],
+      "platform": {
+        "architecture": "arm64",
+        "os": "windows",
+        "os.version": "10.0.17763.1234",
+        "os.features": [
+          "example-9e06",
+          "example-83ba"
+        ],
+        "variant": "v8"
+      },
+      "annotations": {
+        "label-7f68": "example-20df"
+      }
+    },
+    {
+      "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+      "size": 744425,
+      "digest": "sha256:682446a292390779d4377f0821bd83ed0756aa4f9665b284eb341fe183f7efd7",
+      "urls": [
+        "https://example.com/path/a94c1613",
+        "https://example.com/path/a492da22"
+      ],
+      "platform": {
+        "architecture": "amd64",
+        "os": "darwin",
+        "os.version": "10.0.17763.1234",
+        "os.features": [
+          "example-f154",
+          "example-1604"
+        ],
+        "variant": "v7"
+      },
+      "annotations": {
+        "label-2291": "example-bf43"
+      }
+    }
+  ],
+  "annotations": {
+    "label-aaa6": "example-910e"
+  }
+}

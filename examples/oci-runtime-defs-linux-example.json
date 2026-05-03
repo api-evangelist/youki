@@ -1,0 +1,87 @@
+{
+  "PersonalityDomain": "LINUX32",
+  "Personality": {
+    "domain": "LINUX",
+    "flags": [
+      "example-6938",
+      "example-9021"
+    ]
+  },
+  "RootfsPropagation": "shared",
+  "SeccompArch": "SCMP_ARCH_MIPSEL",
+  "SeccompAction": "SCMP_ACT_TRAP",
+  "SeccompFlag": "SECCOMP_FILTER_FLAG_TSYNC",
+  "SeccompOperators": "SCMP_CMP_GE",
+  "SyscallArg": {
+    "index": 323,
+    "value": 680,
+    "valueTwo": 326,
+    "op": "SCMP_CMP_LT"
+  },
+  "Syscall": {
+    "names": [
+      "example-f98d",
+      "example-ebc0"
+    ],
+    "action": "SCMP_ACT_ERRNO",
+    "errnoRet": 494,
+    "args": [
+      "sh",
+      "-c",
+      "echo hello"
+    ]
+  },
+  "Major": 3,
+  "Minor": 707,
+  "FileType": "example-2e27",
+  "Device": {
+    "type": "example-9d57",
+    "path": "/usr/local/bin",
+    "fileMode": 331,
+    "major": 908,
+    "minor": 251,
+    "uid": 33037,
+    "gid": 46467
+  },
+  "NetDevice": {
+    "name": "example-8376"
+  },
+  "weight": 883,
+  "blockIODevice": {
+    "major": 111,
+    "minor": 155
+  },
+  "blockIODeviceWeight": {
+    "major": 235,
+    "minor": 550
+  },
+  "blockIODeviceThrottle": {
+    "major": 984,
+    "minor": 408
+  },
+  "DeviceCgroup": {
+    "allow": false,
+    "type": "example-e297",
+    "major": 792,
+    "minor": 614,
+    "access": "example-5eba"
+  },
+  "MemoryPolicyMode": "MPOL_WEIGHTED_INTERLEAVE",
+  "MemoryPolicyFlag": "MPOL_F_RELATIVE_NODES",
+  "NetworkInterfacePriority": {
+    "name": "example-4920",
+    "priority": 229
+  },
+  "Rdma": {},
+  "NamespaceType": "network",
+  "NamespaceReference": {
+    "type": "ipc",
+    "path": "/"
+  },
+  "TimeOffsets": {
+    "secs": 557,
+    "nanosecs": 26
+  },
+  "SchedulerPolicy": "SCHED_DEADLINE",
+  "SchedulerFlag": "SCHED_FLAG_RESET_ON_FORK"
+}

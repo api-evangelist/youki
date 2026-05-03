@@ -1,0 +1,74 @@
+{
+  "ociVersionMin": "example-f31a",
+  "ociVersionMax": "example-ead0",
+  "hooks": [
+    "example-4416",
+    "example-a4ad"
+  ],
+  "mountOptions": [
+    "example-9918",
+    "example-34ea"
+  ],
+  "annotations": {
+    "label-5228": "example-b7e1"
+  },
+  "potentiallyUnsafeConfigAnnotations": [
+    "example-c85a",
+    "example-a668"
+  ],
+  "linux": {
+    "namespaces": [
+      "ipc",
+      "pid"
+    ],
+    "capabilities": [
+      "example-a7f8",
+      "example-4942"
+    ],
+    "cgroup": {
+      "v1": false,
+      "v2": true,
+      "systemd": false,
+      "systemdUser": true,
+      "rdma": true
+    },
+    "seccomp": {
+      "enabled": false,
+      "actions": [
+        "SCMP_ACT_NOTIFY",
+        "SCMP_ACT_TRAP"
+      ],
+      "operators": [
+        "SCMP_CMP_NE",
+        "SCMP_CMP_GT"
+      ],
+      "archs": [
+        "SCMP_ARCH_MIPS64N32",
+        "SCMP_ARCH_X32"
+      ],
+      "knownFlags": [
+        "SECCOMP_FILTER_FLAG_TSYNC",
+        "SECCOMP_FILTER_FLAG_WAIT_KILLABLE_RECV"
+      ],
+      "supportedFlags": [
+        "SECCOMP_FILTER_FLAG_SPEC_ALLOW",
+        "SECCOMP_FILTER_FLAG_LOG"
+      ]
+    },
+    "apparmor": {
+      "enabled": true
+    },
+    "selinux": {
+      "enabled": true
+    },
+    "intelRdt": {
+      "enabled": false
+    },
+    "mountExtensions": {
+      "idmap": {}
+    },
+    "netDevices": {
+      "enabled": true
+    }
+  }
+}

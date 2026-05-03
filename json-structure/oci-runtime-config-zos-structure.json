@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/youki/refs/heads/main/json-structure/oci-runtime-config-zos-structure.json",
+  "name": "OciRuntimeConfigZos",
+  "zos": {
+    "description": "z/OS platform-specific configurations",
+    "type": "object",
+    "properties": {
+      "namespaces": {
+        "type": "array",
+        "items": {
+          "anyOf": [
+            {
+              "$ref": "defs-zos.json#/definitions/NamespaceReference"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

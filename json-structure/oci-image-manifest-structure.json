@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/youki/refs/heads/main/json-structure/oci-image-manifest-structure.json",
+  "name": "OciImageManifest",
+  "description": "OpenContainer Image Manifest Specification",
+  "type": "object",
+  "id": "https://opencontainers.org/schema/image/manifest",
+  "properties": {
+    "schemaVersion": {
+      "description": "This field specifies the image manifest schema version as an integer",
+      "id": "https://opencontainers.org/schema/image/manifest/schemaVersion",
+      "type": "int32",
+      "minimum": 2,
+      "maximum": 2
+    },
+    "mediaType": {
+      "description": "the mediatype of the referenced object",
+      "$ref": "defs-descriptor.json#/definitions/mediaType"
+    },
+    "artifactType": {
+      "description": "the artifact mediatype of the referenced object",
+      "$ref": "defs-descriptor.json#/definitions/mediaType"
+    },
+    "config": {
+      "$ref": "content-descriptor.json"
+    },
+    "subject": {
+      "$ref": "content-descriptor.json"
+    },
+    "layers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "content-descriptor.json"
+      }
+    },
+    "annotations": {
+      "id": "https://opencontainers.org/schema/image/manifest/annotations",
+      "$ref": "defs-descriptor.json#/definitions/annotations"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "config",
+    "layers"
+  ]
+}

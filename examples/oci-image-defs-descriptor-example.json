@@ -1,0 +1,12 @@
+{
+  "mediaType": "application/vnd.oci.image.manifest.v1+json",
+  "size": 766773,
+  "digest": "sha256:9df33b1fe5c5be6c32876486057e327c7b449aa857f955b16d9132ade520a2b3",
+  "urls": [
+    "https://example.com/path/e1dc9a96",
+    "https://example.com/path/3ee63345"
+  ],
+  "annotations": {
+    "label-163e": "example-d75b"
+  }
+}

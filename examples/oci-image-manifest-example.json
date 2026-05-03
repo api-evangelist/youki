@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 2,
+  "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+  "artifactType": "application/vnd.oci.image.layer.v1.tar+gzip",
+  "config": {
+    "mediaType": "application/vnd.oci.image.index.v1+json",
+    "size": 740588,
+    "digest": "sha256:811ba2ce560bf580abe273ed71519073a2174d8e190c6bcaea5cb3a79d40a42e",
+    "urls": [
+      "https://example.com/path/35ad523f",
+      "https://example.com/path/4d72b76f"
+    ],
+    "data": "example-e6c8",
+    "artifactType": "application/vnd.oci.image.manifest.v1+json",
+    "annotations": {
+      "label-da33": "example-746f"
+    }
+  },
+  "subject": {
+    "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+    "size": 593687,
+    "digest": "sha256:e714181fa50e00770bcab1d39b9409e295f0b409412a315af8c569bbc868b316",
+    "urls": [
+      "https://example.com/path/f1f9ade0",
+      "https://example.com/path/7e65bb34"
+    ],
+    "data": "example-8cde",
+    "artifactType": "application/vnd.oci.image.manifest.v1+json",
+    "annotations": {
+      "label-3da7": "example-b004"
+    }
+  },
+  "layers": [
+    {
+      "mediaType": "application/vnd.oci.image.index.v1+json",
+      "size": 70905,
+      "digest": "sha256:c88a2e45de92c1ff6dbed3a8242d40203dc3c22f460fa0d012c8ce722dfbdf7d",
+      "urls": [
+        "https://example.com/path/e997ebc3",
+        "https://example.com/path/a290d799"
+      ],
+      "data": "example-0597",
+      "artifactType": "application/vnd.oci.image.manifest.v1+json",
+      "annotations": {
+        "label-332c": "example-ac43"
+      }
+    },
+    {
+      "mediaType": "application/vnd.oci.image.manifest.v1+json",
+      "size": 899371,
+      "digest": "sha256:a0ab3e22083dc2a4ae222705def4759aa7134293b1f37e9ad7e1373641c63c7c",
+      "urls": [
+        "https://example.com/path/ddbc73fc",
+        "https://example.com/path/fa19c71e"
+      ],
+      "data": "example-ee0d",
+      "artifactType": "application/vnd.oci.image.manifest.v1+json",
+      "annotations": {
+        "label-03be": "example-abf9"
+      }
+    }
+  ],
+  "annotations": {
+    "label-34d3": "example-08ae"
+  }
+}

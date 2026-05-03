@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/youki/refs/heads/main/json-structure/oci-runtime-defs-freebsd-structure.json",
+  "name": "OciRuntimeDefsFreebsd",
+  "definitions": {
+    "Device": {
+      "name": "Device",
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "mode": {
+          "$ref": "defs.json#/definitions/FileMode"
+        }
+      }
+    },
+    "SharingMode": {
+      "name": "SharingMode",
+      "type": "string",
+      "enum": [
+        "disable",
+        "new",
+        "inherit"
+      ]
+    },
+    "SharingModeNoDisable": {
+      "name": "SharingModeNoDisable",
+      "type": "string",
+      "enum": [
+        "new",
+        "inherit"
+      ]
+    }
+  }
+}

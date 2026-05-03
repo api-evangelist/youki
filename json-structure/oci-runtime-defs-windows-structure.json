@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/youki/refs/heads/main/json-structure/oci-runtime-defs-windows-structure.json",
+  "name": "OciRuntimeDefsWindows",
+  "definitions": {
+    "Device": {
+      "name": "Device",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "idType": {
+          "type": "string",
+          "enum": [
+            "class"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "idType"
+      ]
+    }
+  }
+}

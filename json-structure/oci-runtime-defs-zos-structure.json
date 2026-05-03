@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/youki/refs/heads/main/json-structure/oci-runtime-defs-zos-structure.json",
+  "name": "OciRuntimeDefsZos",
+  "definitions": {
+    "NamespaceType": {
+      "name": "NamespaceType",
+      "type": "string",
+      "enum": [
+        "mount",
+        "pid",
+        "uts",
+        "ipc"
+      ]
+    },
+    "NamespaceReference": {
+      "name": "NamespaceReference",
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/NamespaceType"
+        },
+        "path": {
+          "$ref": "defs.json#/definitions/FilePath"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    }
+  }
+}

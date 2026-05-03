@@ -1,0 +1,48 @@
+{
+  "vm": {
+    "hypervisor": {
+      "path": "/usr/local/bin",
+      "parameters": [
+        "example-00d7",
+        "example-2173"
+      ]
+    },
+    "kernel": {
+      "path": "/var/log",
+      "parameters": [
+        "example-3699",
+        "example-eb10"
+      ],
+      "initrd": "example-2a2f"
+    },
+    "image": {
+      "path": "/usr/local/bin",
+      "format": "raw"
+    },
+    "hwConfig": {
+      "deviceTree": "example-906d",
+      "vcpus": 416,
+      "memory": 456,
+      "dtdevs": [
+        "example-90b4",
+        "example-7dfb"
+      ],
+      "iomems": [
+        {
+          "firstGFN": 293,
+          "firstMFN": 710,
+          "nrMFNs": 333
+        },
+        {
+          "firstGFN": 49,
+          "firstMFN": 112,
+          "nrMFNs": 369
+        }
+      ],
+      "irqs": [
+        721,
+        940
+      ]
+    }
+  }
+}

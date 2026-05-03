@@ -1,0 +1,33 @@
+{
+  "solaris": {
+    "milestone": "example-2936",
+    "limitpriv": "example-3a24",
+    "maxShmMemory": "example-2da3",
+    "cappedCPU": {
+      "ncpus": "example-2de3"
+    },
+    "cappedMemory": {
+      "physical": "example-da1a"
+    },
+    "anet": [
+      {
+        "linkname": "example-6086",
+        "lowerLink": "https://example.com/oci/blobs/sha256/9d025baaa205",
+        "allowedAddress": "example-05aa",
+        "configureAllowedAddress": "example-0ee4",
+        "defrouter": "example-e4c1",
+        "macAddress": "example-da79",
+        "linkProtection": "example-127b"
+      },
+      {
+        "linkname": "example-0e26",
+        "lowerLink": "https://example.com/oci/blobs/sha256/f670fb32735c",
+        "allowedAddress": "example-d7d9",
+        "configureAllowedAddress": "example-affe",
+        "defrouter": "example-3006",
+        "macAddress": "example-181d",
+        "linkProtection": "example-79f5"
+      }
+    ]
+  }
+}

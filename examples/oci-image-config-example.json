@@ -1,0 +1,45 @@
+{
+  "created": "2025-03-15T14:30:00Z",
+  "author": "Jane Smith <jane@example.com>",
+  "architecture": "arm64",
+  "variant": "",
+  "os": "linux",
+  "os.version": "10.0.17763.1234",
+  "os.features": [
+    "example-1756",
+    "example-35b3"
+  ],
+  "config": {
+    "ExposedPorts": {
+      "label-db7c": {}
+    },
+    "Env": [
+      "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "TERM=xterm"
+    ],
+    "Entrypoint": [
+      "example-e979",
+      "example-2b7c"
+    ],
+    "Cmd": [
+      "example-91c9",
+      "example-dafd"
+    ],
+    "Volumes": {
+      "label-1ae8": {}
+    },
+    "WorkingDir": "/app",
+    "Labels": {
+      "label-f79f": "example-2e41"
+    },
+    "StopSignal": "SIGTERM",
+    "ArgsEscaped": false
+  },
+  "rootfs": {
+    "diff_ids": [
+      "sha256:f32ed20316f0a39aaa068f7506cf7304b22e321626de502003d40db3f2ab17bc",
+      "sha256:9a72fc12de245db2222bdc52ce44ba4b7cdc6cbf8415711808cbeb5cf5c501ea"
+    ],
+    "type": "layers"
+  }
+}
