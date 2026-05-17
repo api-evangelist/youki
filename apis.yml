@@ -210,7 +210,7 @@ apis:
       - type: Example
         url: examples/oci-runtime-defs-freebsd-example.json
         title: OCI Runtime FreeBSD Definitions Example
-      - type: JSON-LD
+      - type: JSONLD
         url: json-ld/youki-oci-runtime-context.jsonld
         title: OCI Runtime JSON-LD Context
   - aid: youki:oci-spec-rs
@@ -401,10 +401,10 @@ apis:
       - type: Example
         url: examples/oci-image-defs-descriptor-example.json
         title: OCI Image Descriptor Definitions Example
-      - type: JSON-LD
+      - type: JSONLD
         url: json-ld/youki-oci-runtime-context.jsonld
         title: OCI Runtime JSON-LD Context
-      - type: JSON-LD
+      - type: JSONLD
         url: json-ld/youki-oci-image-context.jsonld
         title: OCI Image JSON-LD Context
 common:
