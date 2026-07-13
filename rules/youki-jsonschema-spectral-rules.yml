@@ -1,0 +1,32 @@
+# youki — JSON Schema Spectral ruleset (strengthened)
+# Plain Spectral. Rules measured from this provider's own JSON Schema
+# conventions by strengthen_jsonschema.py, then self-validated against them.
+#
+# Provenance:
+#   - property-name-casing: snake @ 67% (n=379)
+#   - def-name-casing: pascal @ 54% (n=80)
+rules:
+  property-name-casing:
+    description: Schema properties should be snake_case (the dominant convention in this API).
+    severity: info
+    given: $..properties
+    then:
+      field: '@key'
+      function: casing
+      functionOptions:
+        type: snake
+  definition-name-casing:
+    description: Schema definitions names should be PascalCase (the dominant convention in this API).
+    severity: info
+    given: $..definitions
+    then:
+      field: '@key'
+      function: pattern
+      functionOptions:
+        match: ^[A-Z][A-Za-z0-9]*$
+  no-empty-descriptions:
+    description: Descriptions must not be empty strings.
+    severity: warn
+    given: $..description
+    then:
+      function: truthy
