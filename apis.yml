@@ -8,6 +8,18 @@ description: >-
   organization, youki is adopted by container engines such as containerd, Podman,
   and Docker for executing OCI-compliant workloads.
 type: Index
+deliveryModel:
+  model: self-hosted
+  license: Apache-2.0
+  open_source: true
+  commercial: false
+  callable_host: false
+  label: Self-hosted open source · you run it yourself
+  confidence: high
+  source:
+  - license
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
@@ -428,6 +440,12 @@ apis:
         url: json-ld/youki-oci-image-context.jsonld
         title: OCI Image JSON-LD Context
 common:
+  - type: IssueTracker
+    url: https://github.com/youki-dev/youki/issues
+  - type: SecurityPolicy
+    url: https://github.com/youki-dev/youki/blob/main/SECURITY.md
+  - type: CodeOfConduct
+    url: https://github.com/youki-dev/youki/blob/main/CODE-OF-CONDUCT.md
   - type: License
     name: Apache-2.0
     url: https://github.com/youki-dev/youki/blob/main/LICENSE
