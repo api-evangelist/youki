@@ -440,6 +440,12 @@ apis:
         url: json-ld/youki-oci-image-context.jsonld
         title: OCI Image JSON-LD Context
 common:
+  - type: Plans
+    url: plans/youki-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/youki-rate-limits.yml
+  - type: FinOps
+    url: finops/youki-finops.yml
   - type: IssueTracker
     url: https://github.com/youki-dev/youki/issues
   - type: SecurityPolicy
