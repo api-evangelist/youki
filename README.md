@@ -1,4 +1,4 @@
-# Youki (youki)
+# Youki
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,313 +66,165 @@
 
 youki is an open source container runtime written in Rust that implements the OCI runtime specification as a memory-safe alternative to runc, with rootless container support, cgroups v1 and v2, seccomp filtering, and systemd integration. Maintained as a CNCF sandbox project under the youki-dev organization, youki is adopted by container engines such as containerd, Podman, and Docker for executing OCI-compliant workloads.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/youki/refs/heads/main/apis.yml)
+**Areas:** Containers · Container Runtime · OCI · Rust · CNCF · Cloud-Native · Kubernetes
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Youki on APIs.io
 
-## Tags:
+Everything profiled for Youki is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/youki/](https://apis.io/providers/youki/)** — or go straight to one of the APIs or properties below.
 
- - Containers, Container Runtime, OCI, Rust, CNCF, Cloud Native, Kubernetes
+### APIs (2)
 
-## Timestamps
+- [Youki Container Runtime](https://apis.io/apis/youki/youki/) — youki is a container runtime written in Rust that implements the OCI runtime specification, providing a memory-safe and high-performance alternative to…
+- [OCI Spec for Rust](https://apis.io/apis/youki/oci-spec-rs/) — oci-spec-rs is a Rust implementation of the OCI Runtime, Image, and Distribution Specifications, providing the data structures and types consumed by youki…
 
-- **Created:** 2026-03-26
-- **Modified:** 2026-05-03
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### Youki Container Runtime
-youki is a container runtime written in Rust that implements the OCI runtime specification, providing a memory-safe and high-performance alternative to runc. It supports rootless containers, cgroups v1 and v2, seccomp filtering, capabilities, and Linux namespaces, and integrates with container engines including containerd, Podman, Docker, and Kubernetes.
+#### JSON Schema (23)
 
-**Human URL:** [https://github.com/youki-dev/youki](https://github.com/youki-dev/youki)
+The data models the API reads and writes.
 
-#### Tags:
+- [Oci Image Config](https://apis.io/schemas/youki/oci-image-config/)
+- [Oci Image Content Descriptor](https://apis.io/schemas/youki/oci-image-content-descriptor/)
+- [Oci Image Defs](https://apis.io/schemas/youki/oci-image-defs/)
+- [Oci Image Defs Descriptor](https://apis.io/schemas/youki/oci-image-defs-descriptor/)
+- [Oci Image Index](https://apis.io/schemas/youki/oci-image-index/)
+- [Oci Image Layout](https://apis.io/schemas/youki/oci-image-layout/)
+- [Oci Image Manifest](https://apis.io/schemas/youki/oci-image-manifest/)
+- [Oci Runtime Config](https://apis.io/schemas/youki/oci-runtime-config/)
+- [Oci Runtime Config Freebsd](https://apis.io/schemas/youki/oci-runtime-config-freebsd/)
+- [Oci Runtime Config Linux](https://apis.io/schemas/youki/oci-runtime-config-linux/)
+- [Oci Runtime Config Solaris](https://apis.io/schemas/youki/oci-runtime-config-solaris/)
+- [Oci Runtime Config Vm](https://apis.io/schemas/youki/oci-runtime-config-vm/)
+- [Oci Runtime Config Windows](https://apis.io/schemas/youki/oci-runtime-config-windows/)
+- [Oci Runtime Config Zos](https://apis.io/schemas/youki/oci-runtime-config-zos/)
+- [Oci Runtime Defs](https://apis.io/schemas/youki/oci-runtime-defs/)
+- [Oci Runtime Defs Freebsd](https://apis.io/schemas/youki/oci-runtime-defs-freebsd/)
+- [Oci Runtime Defs Linux](https://apis.io/schemas/youki/oci-runtime-defs-linux/)
+- [Oci Runtime Defs Vm](https://apis.io/schemas/youki/oci-runtime-defs-vm/)
+- [Oci Runtime Defs Windows](https://apis.io/schemas/youki/oci-runtime-defs-windows/)
+- [Oci Runtime Defs Zos](https://apis.io/schemas/youki/oci-runtime-defs-zos/)
+- [Oci Runtime Features](https://apis.io/schemas/youki/oci-runtime-features/)
+- [Oci Runtime Features Linux](https://apis.io/schemas/youki/oci-runtime-features-linux/)
+- [Oci Runtime State](https://apis.io/schemas/youki/oci-runtime-state/)
 
- - Container Runtime, OCI, Rust
+#### JSON Structure (23)
 
-#### Properties
+Data models expressed in JSON Structure.
 
-- [Documentation](https://youki-dev.github.io/youki/)
-- [GettingStarted](https://youki-dev.github.io/youki/user/basic_usage.html)
-- [GitHubRepository](https://github.com/youki-dev/youki)
-- [ReleaseNotes](https://github.com/youki-dev/youki/releases)
-- [ChangeLog](https://github.com/youki-dev/youki/blob/main/CHANGELOG.md)
-- [CLI — youki CLI](https://crates.io/crates/youki)
-- [SDK — libcontainer (Rust)](https://crates.io/crates/libcontainer)
-- [SDK — libcgroups (Rust)](https://crates.io/crates/libcgroups)
-- [SDK — liboci-cli (Rust)](https://crates.io/crates/liboci-cli)
-- [CodeExamples — WebAssembly Sample](https://github.com/youki-dev/youki/tree/main/tools/wasm-sample)
-- [Tutorials — Running WebAssembly Workloads](https://youki-dev.github.io/youki/user/webassembly.html)
-- [JSONSchema — OCI Runtime Config Schema](json-schema/oci-runtime-config-schema.json)
-- [JSONSchema — OCI Runtime State Schema](json-schema/oci-runtime-state-schema.json)
-- [JSONSchema — OCI Runtime Features Schema](json-schema/oci-runtime-features-schema.json)
-- [JSONSchema — OCI Runtime Linux Config Schema](json-schema/oci-runtime-config-linux.json)
-- [JSONSchema — OCI Runtime Windows Config Schema](json-schema/oci-runtime-config-windows.json)
-- [JSONSchema — OCI Runtime Solaris Config Schema](json-schema/oci-runtime-config-solaris.json)
-- [JSONSchema — OCI Runtime FreeBSD Config Schema](json-schema/oci-runtime-config-freebsd.json)
-- [JSONSchema — OCI Runtime z/OS Config Schema](json-schema/oci-runtime-config-zos.json)
-- [JSONSchema — OCI Runtime VM Config Schema](json-schema/oci-runtime-config-vm.json)
-- [JSONSchema — OCI Runtime Linux Features Schema](json-schema/oci-runtime-features-linux.json)
-- [JSONSchema — OCI Runtime Common Definitions](json-schema/oci-runtime-defs.json)
-- [JSONSchema — OCI Runtime Linux Definitions](json-schema/oci-runtime-defs-linux.json)
-- [JSONSchema — OCI Runtime Windows Definitions](json-schema/oci-runtime-defs-windows.json)
-- [JSONSchema — OCI Runtime VM Definitions](json-schema/oci-runtime-defs-vm.json)
-- [JSONSchema — OCI Runtime z/OS Definitions](json-schema/oci-runtime-defs-zos.json)
-- [JSONSchema — OCI Runtime FreeBSD Definitions](json-schema/oci-runtime-defs-freebsd.json)
-- [JSONStructure — OCI Runtime Config Structure](json-structure/oci-runtime-config-structure.json)
-- [JSONStructure — OCI Runtime State Structure](json-structure/oci-runtime-state-structure.json)
-- [JSONStructure — OCI Runtime Features Structure](json-structure/oci-runtime-features-structure.json)
-- [JSONStructure — OCI Runtime Linux Config Structure](json-structure/oci-runtime-config-linux-structure.json)
-- [JSONStructure — OCI Runtime Windows Config Structure](json-structure/oci-runtime-config-windows-structure.json)
-- [JSONStructure — OCI Runtime Solaris Config Structure](json-structure/oci-runtime-config-solaris-structure.json)
-- [JSONStructure — OCI Runtime FreeBSD Config Structure](json-structure/oci-runtime-config-freebsd-structure.json)
-- [JSONStructure — OCI Runtime z/OS Config Structure](json-structure/oci-runtime-config-zos-structure.json)
-- [JSONStructure — OCI Runtime VM Config Structure](json-structure/oci-runtime-config-vm-structure.json)
-- [JSONStructure — OCI Runtime Linux Features Structure](json-structure/oci-runtime-features-linux-structure.json)
-- [JSONStructure — OCI Runtime Common Definitions Structure](json-structure/oci-runtime-defs-structure.json)
-- [JSONStructure — OCI Runtime Linux Definitions Structure](json-structure/oci-runtime-defs-linux-structure.json)
-- [JSONStructure — OCI Runtime Windows Definitions Structure](json-structure/oci-runtime-defs-windows-structure.json)
-- [JSONStructure — OCI Runtime VM Definitions Structure](json-structure/oci-runtime-defs-vm-structure.json)
-- [JSONStructure — OCI Runtime z/OS Definitions Structure](json-structure/oci-runtime-defs-zos-structure.json)
-- [JSONStructure — OCI Runtime FreeBSD Definitions Structure](json-structure/oci-runtime-defs-freebsd-structure.json)
-- [Example — OCI Runtime Config Example](examples/oci-runtime-config-example.json)
-- [Example — OCI Runtime State Example](examples/oci-runtime-state-example.json)
-- [Example — OCI Runtime Features Example](examples/oci-runtime-features-example.json)
-- [Example — OCI Runtime Linux Config Example](examples/oci-runtime-config-linux-example.json)
-- [Example — OCI Runtime Windows Config Example](examples/oci-runtime-config-windows-example.json)
-- [Example — OCI Runtime Solaris Config Example](examples/oci-runtime-config-solaris-example.json)
-- [Example — OCI Runtime FreeBSD Config Example](examples/oci-runtime-config-freebsd-example.json)
-- [Example — OCI Runtime z/OS Config Example](examples/oci-runtime-config-zos-example.json)
-- [Example — OCI Runtime VM Config Example](examples/oci-runtime-config-vm-example.json)
-- [Example — OCI Runtime Linux Features Example](examples/oci-runtime-features-linux-example.json)
-- [Example — OCI Runtime Common Definitions Example](examples/oci-runtime-defs-example.json)
-- [Example — OCI Runtime Linux Definitions Example](examples/oci-runtime-defs-linux-example.json)
-- [Example — OCI Runtime Windows Definitions Example](examples/oci-runtime-defs-windows-example.json)
-- [Example — OCI Runtime VM Definitions Example](examples/oci-runtime-defs-vm-example.json)
-- [Example — OCI Runtime z/OS Definitions Example](examples/oci-runtime-defs-zos-example.json)
-- [Example — OCI Runtime FreeBSD Definitions Example](examples/oci-runtime-defs-freebsd-example.json)
-- [JSON-LD — OCI Runtime JSON-LD Context](json-ld/youki-oci-runtime-context.jsonld)
+- [Oci Image Config Structure](https://apis.io/json-structure/youki/oci-image-config-structure/)
+- [Oci Image Content Descriptor Structure](https://apis.io/json-structure/youki/oci-image-content-descriptor-structure/)
+- [Oci Image Defs Descriptor Structure](https://apis.io/json-structure/youki/oci-image-defs-descriptor-structure/)
+- [Oci Image Defs Structure](https://apis.io/json-structure/youki/oci-image-defs-structure/)
+- [Oci Image Index Structure](https://apis.io/json-structure/youki/oci-image-index-structure/)
+- [Oci Image Layout Structure](https://apis.io/json-structure/youki/oci-image-layout-structure/)
+- [Oci Image Manifest Structure](https://apis.io/json-structure/youki/oci-image-manifest-structure/)
+- [Oci Runtime Config Freebsd Structure](https://apis.io/json-structure/youki/oci-runtime-config-freebsd-structure/)
+- [Oci Runtime Config Linux Structure](https://apis.io/json-structure/youki/oci-runtime-config-linux-structure/)
+- [Oci Runtime Config Solaris Structure](https://apis.io/json-structure/youki/oci-runtime-config-solaris-structure/)
+- [Oci Runtime Config Structure](https://apis.io/json-structure/youki/oci-runtime-config-structure/)
+- [Oci Runtime Config Vm Structure](https://apis.io/json-structure/youki/oci-runtime-config-vm-structure/)
+- [Oci Runtime Config Windows Structure](https://apis.io/json-structure/youki/oci-runtime-config-windows-structure/)
+- [Oci Runtime Config Zos Structure](https://apis.io/json-structure/youki/oci-runtime-config-zos-structure/)
+- [Oci Runtime Defs Freebsd Structure](https://apis.io/json-structure/youki/oci-runtime-defs-freebsd-structure/)
+- [Oci Runtime Defs Linux Structure](https://apis.io/json-structure/youki/oci-runtime-defs-linux-structure/)
+- [Oci Runtime Defs Structure](https://apis.io/json-structure/youki/oci-runtime-defs-structure/)
+- [Oci Runtime Defs Vm Structure](https://apis.io/json-structure/youki/oci-runtime-defs-vm-structure/)
+- [Oci Runtime Defs Windows Structure](https://apis.io/json-structure/youki/oci-runtime-defs-windows-structure/)
+- [Oci Runtime Defs Zos Structure](https://apis.io/json-structure/youki/oci-runtime-defs-zos-structure/)
+- [Oci Runtime Features Linux Structure](https://apis.io/json-structure/youki/oci-runtime-features-linux-structure/)
+- [Oci Runtime Features Structure](https://apis.io/json-structure/youki/oci-runtime-features-structure/)
+- [Oci Runtime State Structure](https://apis.io/json-structure/youki/oci-runtime-state-structure/)
 
-### OCI Spec for Rust
-oci-spec-rs is a Rust implementation of the OCI Runtime, Image, and Distribution Specifications, providing the data structures and types consumed by youki and other Rust-based container tooling.
+#### JSON-LD (2)
 
-**Human URL:** [https://github.com/youki-dev/oci-spec-rs](https://github.com/youki-dev/oci-spec-rs)
+Linked-data contexts for the provider's vocabulary.
 
-#### Tags:
+- [Youki Oci Image Context](https://apis.io/jsonld/youki/youki-oci-image-context/)
+- [Youki Oci Runtime Context](https://apis.io/jsonld/youki/youki-oci-runtime-context/)
 
- - OCI, Rust, Specification
+#### Vocabulary (1)
 
-#### Properties
+The provider's domain terms, defined.
 
-- [GitHubRepository](https://github.com/youki-dev/oci-spec-rs)
-- [SDK — oci-spec (Rust)](https://crates.io/crates/oci-spec)
-- [Documentation — oci-spec API Docs](https://docs.rs/oci-spec)
-- [JSONSchema — OCI Runtime Config Schema](json-schema/oci-runtime-config-schema.json)
-- [JSONSchema — OCI Runtime State Schema](json-schema/oci-runtime-state-schema.json)
-- [JSONSchema — OCI Runtime Features Schema](json-schema/oci-runtime-features-schema.json)
-- [JSONSchema — OCI Image Config Schema](json-schema/oci-image-config-schema.json)
-- [JSONSchema — OCI Image Manifest Schema](json-schema/oci-image-manifest-schema.json)
-- [JSONSchema — OCI Image Index Schema](json-schema/oci-image-index-schema.json)
-- [JSONSchema — OCI Image Layout Schema](json-schema/oci-image-layout-schema.json)
-- [JSONSchema — OCI Image Content Descriptor Schema](json-schema/oci-image-content-descriptor.json)
-- [JSONSchema — OCI Image Common Definitions](json-schema/oci-image-defs.json)
-- [JSONSchema — OCI Image Descriptor Definitions](json-schema/oci-image-defs-descriptor.json)
-- [JSONStructure — OCI Runtime Config Structure](json-structure/oci-runtime-config-structure.json)
-- [JSONStructure — OCI Runtime State Structure](json-structure/oci-runtime-state-structure.json)
-- [JSONStructure — OCI Runtime Features Structure](json-structure/oci-runtime-features-structure.json)
-- [JSONStructure — OCI Runtime Linux Config Structure](json-structure/oci-runtime-config-linux-structure.json)
-- [JSONStructure — OCI Runtime Windows Config Structure](json-structure/oci-runtime-config-windows-structure.json)
-- [JSONStructure — OCI Runtime Solaris Config Structure](json-structure/oci-runtime-config-solaris-structure.json)
-- [JSONStructure — OCI Runtime FreeBSD Config Structure](json-structure/oci-runtime-config-freebsd-structure.json)
-- [JSONStructure — OCI Runtime z/OS Config Structure](json-structure/oci-runtime-config-zos-structure.json)
-- [JSONStructure — OCI Runtime VM Config Structure](json-structure/oci-runtime-config-vm-structure.json)
-- [JSONStructure — OCI Runtime Linux Features Structure](json-structure/oci-runtime-features-linux-structure.json)
-- [JSONStructure — OCI Runtime Common Definitions Structure](json-structure/oci-runtime-defs-structure.json)
-- [JSONStructure — OCI Runtime Linux Definitions Structure](json-structure/oci-runtime-defs-linux-structure.json)
-- [JSONStructure — OCI Runtime Windows Definitions Structure](json-structure/oci-runtime-defs-windows-structure.json)
-- [JSONStructure — OCI Runtime VM Definitions Structure](json-structure/oci-runtime-defs-vm-structure.json)
-- [JSONStructure — OCI Runtime z/OS Definitions Structure](json-structure/oci-runtime-defs-zos-structure.json)
-- [JSONStructure — OCI Runtime FreeBSD Definitions Structure](json-structure/oci-runtime-defs-freebsd-structure.json)
-- [JSONStructure — OCI Image Config Structure](json-structure/oci-image-config-structure.json)
-- [JSONStructure — OCI Image Manifest Structure](json-structure/oci-image-manifest-structure.json)
-- [JSONStructure — OCI Image Index Structure](json-structure/oci-image-index-structure.json)
-- [JSONStructure — OCI Image Layout Structure](json-structure/oci-image-layout-structure.json)
-- [JSONStructure — OCI Image Content Descriptor Structure](json-structure/oci-image-content-descriptor-structure.json)
-- [JSONStructure — OCI Image Common Definitions Structure](json-structure/oci-image-defs-structure.json)
-- [JSONStructure — OCI Image Descriptor Definitions Structure](json-structure/oci-image-defs-descriptor-structure.json)
-- [Example — OCI Runtime Config Example](examples/oci-runtime-config-example.json)
-- [Example — OCI Runtime State Example](examples/oci-runtime-state-example.json)
-- [Example — OCI Runtime Features Example](examples/oci-runtime-features-example.json)
-- [Example — OCI Runtime Linux Config Example](examples/oci-runtime-config-linux-example.json)
-- [Example — OCI Runtime Windows Config Example](examples/oci-runtime-config-windows-example.json)
-- [Example — OCI Runtime Solaris Config Example](examples/oci-runtime-config-solaris-example.json)
-- [Example — OCI Runtime FreeBSD Config Example](examples/oci-runtime-config-freebsd-example.json)
-- [Example — OCI Runtime z/OS Config Example](examples/oci-runtime-config-zos-example.json)
-- [Example — OCI Runtime VM Config Example](examples/oci-runtime-config-vm-example.json)
-- [Example — OCI Runtime Linux Features Example](examples/oci-runtime-features-linux-example.json)
-- [Example — OCI Runtime Common Definitions Example](examples/oci-runtime-defs-example.json)
-- [Example — OCI Runtime Linux Definitions Example](examples/oci-runtime-defs-linux-example.json)
-- [Example — OCI Runtime Windows Definitions Example](examples/oci-runtime-defs-windows-example.json)
-- [Example — OCI Runtime VM Definitions Example](examples/oci-runtime-defs-vm-example.json)
-- [Example — OCI Runtime z/OS Definitions Example](examples/oci-runtime-defs-zos-example.json)
-- [Example — OCI Runtime FreeBSD Definitions Example](examples/oci-runtime-defs-freebsd-example.json)
-- [Example — OCI Image Config Example](examples/oci-image-config-example.json)
-- [Example — OCI Image Manifest Example](examples/oci-image-manifest-example.json)
-- [Example — OCI Image Index Example](examples/oci-image-index-example.json)
-- [Example — OCI Image Layout Example](examples/oci-image-layout-example.json)
-- [Example — OCI Image Content Descriptor Example](examples/oci-image-content-descriptor-example.json)
-- [Example — OCI Image Common Definitions Example](examples/oci-image-defs-example.json)
-- [Example — OCI Image Descriptor Definitions Example](examples/oci-image-defs-descriptor-example.json)
-- [JSON-LD — OCI Runtime JSON-LD Context](json-ld/youki-oci-runtime-context.jsonld)
-- [JSON-LD — OCI Image JSON-LD Context](json-ld/youki-oci-image-context.jsonld)
+- [Youki Vocabulary](https://apis.io/vocabularies/youki/youki-vocabulary/)
 
-## Common Properties
+#### Examples (23)
+
+Example requests and responses.
+
+- [Oci Image Config Example](https://apis.io/examples/youki/oci-image-config-example/)
+- [Oci Image Content Descriptor Example](https://apis.io/examples/youki/oci-image-content-descriptor-example/)
+- [Oci Image Defs Descriptor Example](https://apis.io/examples/youki/oci-image-defs-descriptor-example/)
+- [Oci Image Defs Example](https://apis.io/examples/youki/oci-image-defs-example/)
+- [Oci Image Index Example](https://apis.io/examples/youki/oci-image-index-example/)
+- [Oci Image Layout Example](https://apis.io/examples/youki/oci-image-layout-example/)
+- [Oci Image Manifest Example](https://apis.io/examples/youki/oci-image-manifest-example/)
+- [Oci Runtime Config Example](https://apis.io/examples/youki/oci-runtime-config-example/)
+- [Oci Runtime Config Freebsd Example](https://apis.io/examples/youki/oci-runtime-config-freebsd-example/)
+- [Oci Runtime Config Linux Example](https://apis.io/examples/youki/oci-runtime-config-linux-example/)
+- [Oci Runtime Config Solaris Example](https://apis.io/examples/youki/oci-runtime-config-solaris-example/)
+- [Oci Runtime Config Vm Example](https://apis.io/examples/youki/oci-runtime-config-vm-example/)
+- [Oci Runtime Config Windows Example](https://apis.io/examples/youki/oci-runtime-config-windows-example/)
+- [Oci Runtime Config Zos Example](https://apis.io/examples/youki/oci-runtime-config-zos-example/)
+- [Oci Runtime Defs Example](https://apis.io/examples/youki/oci-runtime-defs-example/)
+- [Oci Runtime Defs Freebsd Example](https://apis.io/examples/youki/oci-runtime-defs-freebsd-example/)
+- [Oci Runtime Defs Linux Example](https://apis.io/examples/youki/oci-runtime-defs-linux-example/)
+- [Oci Runtime Defs Vm Example](https://apis.io/examples/youki/oci-runtime-defs-vm-example/)
+- [Oci Runtime Defs Windows Example](https://apis.io/examples/youki/oci-runtime-defs-windows-example/)
+- [Oci Runtime Defs Zos Example](https://apis.io/examples/youki/oci-runtime-defs-zos-example/)
+- [Oci Runtime Features Example](https://apis.io/examples/youki/oci-runtime-features-example/)
+- [Oci Runtime Features Linux Example](https://apis.io/examples/youki/oci-runtime-features-linux-example/)
+- [Oci Runtime State Example](https://apis.io/examples/youki/oci-runtime-state-example/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Youki — jsonschema rules](https://apis.io/rules/youki/youki-jsonschema-spectral-rules/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Youki Plans Pricing](https://apis.io/plans/youki/youki-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Youki Rate Limits](https://apis.io/rate-limits/youki/youki-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Youki Finops](https://apis.io/finops/youki/youki-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Documentation](https://youki-dev.github.io/youki/)
-- [GitHubOrganization](https://github.com/youki-dev)
-- [GitHubRepository](https://github.com/youki-dev/youki)
-- [ReleaseNotes](https://github.com/youki-dev/youki/releases)
-- [ChangeLog](https://github.com/youki-dev/youki/blob/main/CHANGELOG.md)
 - [Support](https://youki-dev.github.io/youki/community/introduction.html)
-- [Vocabulary — Youki Vocabulary](vocabulary/youki-vocabulary.yaml)
+- [Changelog](https://github.com/youki-dev/youki/blob/main/CHANGELOG.md)
+- [GitHub](https://github.com/youki-dev)
 
-## Features
+## API Evangelist rating
 
-| Name | Description |
-|------|-------------|
-| OCI Runtime Spec Compliance | Implements the Open Container Initiative (OCI) runtime specification, allowing youki to run any OCI-compliant container alongside or in place of runc. |
-| Memory-Safe Rust Implementation | Written entirely in Rust to deliver memory safety and stronger isolation guarantees than C-based container runtimes. |
-| Rootless Containers | Enables running containers without root privileges to reduce host attack surface for development and multi-tenant scenarios. |
-| Cgroups v1 and v2 Support | Supports both legacy cgroups v1 and modern cgroups v2 hierarchies for resource management on Linux. |
-| Seccomp Filtering | Applies seccomp BPF filters to restrict syscalls available to containers and harden the runtime surface. |
-| Systemd Integration | Integrates with systemd as a cgroup manager and supports systemd-managed container processes. |
-| Linux Namespaces and Capabilities | Manages mount, UTS, IPC, user, PID, network, and cgroup namespaces and supports capabilities such as CAP_BPF, CAP_PERFMON, and CAP_CHECKPOINT_RESTORE. |
-| Performance | Benchmarks show youki performing roughly twice as fast as runc for container create-to-delete cycles. |
-| CNCF Sandbox Project | Maintained as a Cloud Native Computing Foundation sandbox project with open governance, public roadmap, and community contributors. |
+**Unrated** — no public website could be reached for this company, so there was almost nothing to measure and nothing a reader could check.
 
-## Use Cases
+This is not a score of zero. No rating is published for this company. If that is wrong because something public exists that we missed, say so on this repository or email [info@apievangelist.com](mailto:info@apievangelist.com) and it will be re-run — free, and no justification needed.
 
-| Name | Description |
-|------|-------------|
-| Drop-In runc Replacement | Use youki as a drop-in replacement for runc in container engines to gain memory safety and performance benefits with no workload changes. |
-| Rootless Container Workflows | Run containers as a non-root user for development, CI, or multi-tenant environments where elevated privileges are not desirable. |
-| Kubernetes Workloads via containerd | Use youki under containerd to execute Kubernetes pods and workloads in production clusters. |
-| Podman and Docker Container Execution | Configure Podman or Docker to invoke youki as the low-level OCI runtime for image execution. |
-| Container Runtime Research and Education | Explore and prototype container runtime features in a memory-safe codebase suitable for systems research, security analysis, and teaching. |
+## How this profile is made
 
-## Integrations
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-| Name | Description |
-|------|-------------|
-| containerd | containerd has passed end-to-end testing against youki, enabling its use as the OCI runtime for Kubernetes and other workloads orchestrated by containerd. |
-| Podman | Podman can be configured to use youki as its OCI runtime for both rootless and rootful container execution. |
-| Docker | Docker can call youki as the low-level OCI runtime in place of runc for compatible workloads via daemon.json configuration. |
-| Kubernetes | Kubernetes clusters can run youki indirectly through container runtimes such as containerd or CRI-O. |
-| crun | youki sits alongside crun as a modern alternative to runc, focused on memory-safe systems programming in Rust. |
-| systemd | Integrates with systemd for cgroup management and lifecycle control of container processes. |
-| oci-spec-rs | Built on oci-spec-rs, the Rust implementation of the OCI Runtime, Image, and Distribution specifications maintained by the same organization. |
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Youki: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-## Solutions
+## Open an issue
 
-| Name | Description |
-|------|-------------|
-| Cloud Native Container Platforms | Provides a CNCF sandbox container runtime for cloud-native platforms looking to adopt a memory-safe OCI runtime under containerd or CRI-O. |
-| Secure Multi-Tenant Hosts | Pairs rootless containers, seccomp filtering, and Rust memory safety to harden multi-tenant container hosts against runtime exploits. |
-| Edge and Embedded Workloads | A lightweight, high-performance runtime suitable for edge and embedded deployments where resource use and predictable performance matter. |
-
-## Artifacts
-
-Machine-readable API specifications organized by format.
-
-### JSON Schema
-
-- [OCI Image Config Schema](json-schema/oci-image-config-schema.json)
-- [OCI Image Content Descriptor Schema](json-schema/oci-image-content-descriptor.json)
-- [OCI Image Descriptor Definitions](json-schema/oci-image-defs-descriptor.json)
-- [OCI Image Common Definitions](json-schema/oci-image-defs.json)
-- [OCI Image Index Schema](json-schema/oci-image-index-schema.json)
-- [OCI Image Layout Schema](json-schema/oci-image-layout-schema.json)
-- [OCI Image Manifest Schema](json-schema/oci-image-manifest-schema.json)
-- [OCI Runtime FreeBSD Config Schema](json-schema/oci-runtime-config-freebsd.json)
-- [OCI Runtime Linux Config Schema](json-schema/oci-runtime-config-linux.json)
-- [OCI Runtime Config Schema](json-schema/oci-runtime-config-schema.json)
-- [OCI Runtime Solaris Config Schema](json-schema/oci-runtime-config-solaris.json)
-- [OCI Runtime VM Config Schema](json-schema/oci-runtime-config-vm.json)
-- [OCI Runtime Windows Config Schema](json-schema/oci-runtime-config-windows.json)
-- [OCI Runtime z/OS Config Schema](json-schema/oci-runtime-config-zos.json)
-- [OCI Runtime FreeBSD Definitions](json-schema/oci-runtime-defs-freebsd.json)
-- [OCI Runtime Linux Definitions](json-schema/oci-runtime-defs-linux.json)
-- [OCI Runtime VM Definitions](json-schema/oci-runtime-defs-vm.json)
-- [OCI Runtime Windows Definitions](json-schema/oci-runtime-defs-windows.json)
-- [OCI Runtime z/OS Definitions](json-schema/oci-runtime-defs-zos.json)
-- [OCI Runtime Common Definitions](json-schema/oci-runtime-defs.json)
-- [OCI Runtime Linux Features Schema](json-schema/oci-runtime-features-linux.json)
-- [OCI Runtime Features Schema](json-schema/oci-runtime-features-schema.json)
-- [OCI Runtime State Schema](json-schema/oci-runtime-state-schema.json)
-
-### JSON Structure
-
-- [OCI Image Config Structure](json-structure/oci-image-config-structure.json)
-- [OCI Image Content Descriptor Structure](json-structure/oci-image-content-descriptor-structure.json)
-- [OCI Image Descriptor Definitions Structure](json-structure/oci-image-defs-descriptor-structure.json)
-- [OCI Image Common Definitions Structure](json-structure/oci-image-defs-structure.json)
-- [OCI Image Index Structure](json-structure/oci-image-index-structure.json)
-- [OCI Image Layout Structure](json-structure/oci-image-layout-structure.json)
-- [OCI Image Manifest Structure](json-structure/oci-image-manifest-structure.json)
-- [OCI Runtime FreeBSD Config Structure](json-structure/oci-runtime-config-freebsd-structure.json)
-- [OCI Runtime Linux Config Structure](json-structure/oci-runtime-config-linux-structure.json)
-- [OCI Runtime Solaris Config Structure](json-structure/oci-runtime-config-solaris-structure.json)
-- [OCI Runtime Config Structure](json-structure/oci-runtime-config-structure.json)
-- [OCI Runtime VM Config Structure](json-structure/oci-runtime-config-vm-structure.json)
-- [OCI Runtime Windows Config Structure](json-structure/oci-runtime-config-windows-structure.json)
-- [OCI Runtime z/OS Config Structure](json-structure/oci-runtime-config-zos-structure.json)
-- [OCI Runtime FreeBSD Definitions Structure](json-structure/oci-runtime-defs-freebsd-structure.json)
-- [OCI Runtime Linux Definitions Structure](json-structure/oci-runtime-defs-linux-structure.json)
-- [OCI Runtime Common Definitions Structure](json-structure/oci-runtime-defs-structure.json)
-- [OCI Runtime VM Definitions Structure](json-structure/oci-runtime-defs-vm-structure.json)
-- [OCI Runtime Windows Definitions Structure](json-structure/oci-runtime-defs-windows-structure.json)
-- [OCI Runtime z/OS Definitions Structure](json-structure/oci-runtime-defs-zos-structure.json)
-- [OCI Runtime Linux Features Structure](json-structure/oci-runtime-features-linux-structure.json)
-- [OCI Runtime Features Structure](json-structure/oci-runtime-features-structure.json)
-- [OCI Runtime State Structure](json-structure/oci-runtime-state-structure.json)
-
-### JSON-LD
-
-- [OCI Image JSON-LD Context](json-ld/youki-oci-image-context.jsonld)
-- [OCI Runtime JSON-LD Context](json-ld/youki-oci-runtime-context.jsonld)
-
-### Examples
-
-- [OCI Image Config Example](examples/oci-image-config-example.json)
-- [OCI Image Content Descriptor Example](examples/oci-image-content-descriptor-example.json)
-- [OCI Image Descriptor Definitions Example](examples/oci-image-defs-descriptor-example.json)
-- [OCI Image Common Definitions Example](examples/oci-image-defs-example.json)
-- [OCI Image Index Example](examples/oci-image-index-example.json)
-- [OCI Image Layout Example](examples/oci-image-layout-example.json)
-- [OCI Image Manifest Example](examples/oci-image-manifest-example.json)
-- [OCI Runtime Config Example](examples/oci-runtime-config-example.json)
-- [OCI Runtime FreeBSD Config Example](examples/oci-runtime-config-freebsd-example.json)
-- [OCI Runtime Linux Config Example](examples/oci-runtime-config-linux-example.json)
-- [OCI Runtime Solaris Config Example](examples/oci-runtime-config-solaris-example.json)
-- [OCI Runtime VM Config Example](examples/oci-runtime-config-vm-example.json)
-- [OCI Runtime Windows Config Example](examples/oci-runtime-config-windows-example.json)
-- [OCI Runtime z/OS Config Example](examples/oci-runtime-config-zos-example.json)
-- [OCI Runtime Common Definitions Example](examples/oci-runtime-defs-example.json)
-- [OCI Runtime FreeBSD Definitions Example](examples/oci-runtime-defs-freebsd-example.json)
-- [OCI Runtime Linux Definitions Example](examples/oci-runtime-defs-linux-example.json)
-- [OCI Runtime VM Definitions Example](examples/oci-runtime-defs-vm-example.json)
-- [OCI Runtime Windows Definitions Example](examples/oci-runtime-defs-windows-example.json)
-- [OCI Runtime z/OS Definitions Example](examples/oci-runtime-defs-zos-example.json)
-- [OCI Runtime Features Example](examples/oci-runtime-features-example.json)
-- [OCI Runtime Linux Features Example](examples/oci-runtime-features-linux-example.json)
-- [OCI Runtime State Example](examples/oci-runtime-state-example.json)
-
-## Vocabulary
-
-- [Youki Vocabulary](vocabulary/youki-vocabulary.yaml) — Unified taxonomy mapping 16 resources, 17 actions, 10 workflows, and 9 personas across operational (OpenAPI) and capability (Naftiko) dimensions
-
-## Maintainers
-
-**FN:** Kin Lane
-
-**Email:** kin@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/youki/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
